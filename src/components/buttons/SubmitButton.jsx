@@ -1,10 +1,10 @@
 
 
-const SubmitButton = () => {
+const SubmitButton = ({ buttonClass, buttonType, onSubmitHandler, buttonText }) => {
     return (
-        <div>
-
-        </div>
+        <button className={buttonClass} type={buttonType} onSubmit={onSubmitHandler}>
+            {buttonText}
+        </button>
     );
 };
 
