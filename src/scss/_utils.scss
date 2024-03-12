@@ -1,0 +1,151 @@
+
+////// MEDIA //////
+///////////////////
+$phone: 300px;
+$tablet: 600px;
+$desktop-small: 900px;
+$default: 1200px;
+$desktop-large: 1500px;
+
+@mixin responsive($media) {
+  @if $media == phone {
+    @media only screen and (min-width: $phone) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $media == desktop-small {
+    @media only screen and (min-width: $desktop-small) {
+      @content;
+    }
+  } @else if $media == default {
+    @media only screen and (min-width: $default) {
+      @content;
+    }
+  } @else if $media == desktop-large {
+    @media only screen and (min-width: #{$desktop-large}) {
+      @content;
+    }
+  }
+}
+
+
+////// COLORS //////
+///////////////////
+$off-white: #FCFBF8;
+$text-color: #122315;
+
+// Lime
+$lime-100: #F7FDF6;
+$lime-90: #CFF5CB;
+$lime-80: #A6EDA1;
+$lime-70: #7EE576;
+$lime-60: #55DD4A;
+$lime-50: #33CE27;
+$lime-40: #29A31F;
+$lime-30: #1E7817;
+$lime-20: #134D0F;
+$lime-10: #092206;
+
+// Tomato
+$tomato-100: #FFCDCC;
+$tomato-90: #FFB3B3;
+$tomato-80: #FE9A9A;
+$tomato-70: #FE8180;
+$tomato-60: #FE6867;
+$tomato-50: #FE4E4D;
+$tomato-40: #FE3534;
+$tomato-30: #FE1C1B;
+$tomato-20: #FE0301;
+$tomato-10: #E40301;
+
+// Blue
+$blue-100: #F7FCFD;
+$blue-90: #CCF0F4;
+$blue-80: #A7E4EB;
+$blue-70: #82D8E2;
+$blue-60: #5DDCD9;
+$blue-50: #3DD0CF;
+$blue-40: #2FA3A3;
+$blue-30: #207677;
+$blue-20: #104A4A;
+$blue-10: #031D1D;
+
+
+////// TYPOGRAPHY //////
+///////////////////////
+$font-helvetica: 'Helvetica', sans-serif;
+$font-monkey: 'Happy Monkey', system-ui;
+
+h1 {
+  font-family: $font-helvetica;
+  font-size: 6rem;
+  line-height: 1.6;
+  color: $off-white;
+  text-transform: uppercase;
+
+  @include responsive(phone) {
+    font-size: 1.5rem;
+  }
+
+  @include responsive(tablet) {
+    font-size: 2rem;
+  }
+
+  @include responsive(desktop-small) {
+    font-size: 4rem;
+  }
+
+  @include responsive(default) {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-family: $font-helvetica;
+  font-size: 3rem;
+
+  @include responsive(tablet) {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: -1.4px;
+  padding: .5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  padding: .5rem;
+  font-family: $font-monkey;
+}
+
+p, span, a, li, input, button {
+  font-family: $font-helvetica;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: $text-color;
+}
+
+
+
+////// RESET //////
+///////////////////////
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: $font-helvetica;
+  line-height: 1.6;
+  background-color: $off-white;
+  color: $text-color;
+}
