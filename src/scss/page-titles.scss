@@ -1,0 +1,97 @@
+
+@import "mixin-containers";
+@import "utils";
+@import "typography";
+
+$recipes-main--img: "/src/assets/images/food-on-table.png";
+$recipes-all--img: "/src/assets/images/cutting-veggies.png";
+$recipes-new--img: "/src/assets/images/food-table-meat.png";
+$recipes-saved--img: "/src/assets/images/sweet-dessert.png";
+
+$groceries-main--img: "/src/assets/images/shopping-bag.png";
+$groceries-current-list--img: "/src/assets/images/tea-shopper.png";
+$groceries-recent-lists--img: "/src/assets/images/grocery-shopper.png";
+$groceries-shopping-mode--img: "/src/assets/images/veggies-basket.png";
+
+$dashboard-main--img: "/src/assets/images/shopper.png";
+$login-page-title--img: "/src/assets/images/outside-market.png";
+$register-page-title--img: "/src/assets/images/market-sign.png";
+
+
+////// RECIPES //////
+/////////////////////
+.recipes-main__title {
+  @include set-page-title($recipes-main--img, $lime-60, $lime-60);
+  .page-title__content {
+    @include set-page-title-content($lime-60);
+  }
+}
+
+.recipes-all__title {
+  @include set-page-title($recipes-all--img, $lime-60, $lime-60);
+  .page-title__content {
+    @include set-page-title-content($lime-60);
+  }
+}
+
+.recipes-new__title {
+  @include set-page-title($recipes-new--img, $lime-60, $lime-60);
+  .page-title__content {
+    @include set-page-title-content($lime-60);
+  }
+}
+
+.recipes-saved__title {
+  @include set-page-title($recipes-saved--img, $lime-60, $lime-60);
+  .page-title__content {
+    @include set-page-title-content($lime-60);
+  }
+}
+
+
+////// GROCERIES //////
+/////////////////////
+.groceries-main__title {
+  @include set-page-title($groceries-main--img, $blue-70, $blue-70);
+  .page-title__content {
+    @include set-page-title-content($blue-70);
+  }
+}
+
+.groceries-current-list__title {
+  @include set-page-title($groceries-current-list--img, $blue-70, $blue-70);
+  .page-title__content {
+    @include set-page-title-content($blue-70);
+  }
+}
+
+.groceries-recent-lists__title {
+  @include set-page-title($groceries-recent-lists--img, $blue-70, $blue-70);
+  .page-title__content {
+    @include set-page-title-content($blue-70);
+  }
+}
+
+.groceries-shopping-mode__title {
+  @include set-page-title($groceries-shopping-mode--img, $blue-70, $blue-70);
+  .page-title__content {
+    @include set-page-title-content($blue-70);
+  }
+}
+
+
+////// GENERAL //////
+/////////////////////
+.dashboard-main__title {
+  @include set-page-title($dashboard-main--img, $tomato-60, $tomato-60);
+  .page-title__content {
+    @include set-page-title-content($tomato-60);
+  }
+}
+
+.login-register__title {
+  @include set-page-title($login-page-title--img, $tomato-60, $tomato-60);
+  .page-title__content {
+    @include set-page-title-content($tomato-60);
+  }
+}

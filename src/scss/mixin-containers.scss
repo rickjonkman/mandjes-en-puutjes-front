@@ -1,0 +1,101 @@
+@import "media";
+@import "utils";
+
+////// DEFAULT CONTAINERS //////
+@mixin set-bg-image($image, $bg-color) {
+  background-color: $bg-color;
+  background-image: url($image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin set-bg-color-thick-border($color, $border-color) {
+  background-color: $color;
+  border: 4px solid $border-color;
+  border-radius: 16px;
+}
+
+@mixin set-bg-color-narrow-border($color, $border-color) {
+  background-color: $color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+}
+
+@mixin set-width($width, $max-width) {
+  width: $width;
+  max-width: $max-width;
+}
+
+@mixin set-height($height, $max-height) {
+  height: $height;
+  max-height: $max-height;
+}
+
+////// FLEXBOX CONTAINERS //////
+@mixin set-flexbox($direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+////// PAGE TITLES //////
+@mixin set-page-title($image, $bg-color, $border-color) {
+  @include set-bg-image($image, $bg-color);
+  border: 4px solid $bg-color;
+  margin-top: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
+  @include responsive(phone) {
+    min-height: 10rem;
+  }
+
+  @include responsive(tablet) {
+    min-height: 25rem;
+  }
+
+  @include responsive(desktop-small) {
+    min-height: 20rem;
+  }
+}
+
+@mixin set-recipe-page-title($bg-color, $border-color) {
+  @include set-bg-color-thick-border($bg-color, $border-color);
+  margin-top: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin set-page-title-content($color) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: .5rem 2rem;
+  border-radius: 16px 0 0 0;
+  background-color: $color;
+}
+
+////// MAIN PAGES GRID //////
+@mixin set-main-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 2rem;
+}
+
+////// REGISTER AND LOGIN //////
+@mixin set-login-register-form-container($bg-color, $border-color) {
+  @include set-bg-color-thick-border($bg-color, $border-color);
+  @include set-flexbox(column, center, center);
+  width: 100%;
+  min-height: 10rem;
+  padding: 3rem 0;
+  margin-top: 2rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}

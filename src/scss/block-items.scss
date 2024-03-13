@@ -1,0 +1,121 @@
+@import "utils";
+@import "mixin-containers";
+
+// Recipes Block-item images
+$recipe-img-one: "/src/assets/images/bowl-green-bg.png";
+$recipe-img-two: "/src/assets/images/hamburger-green-bg.png";
+$recipe-img-three: "/src/assets/images/pasta-green-bg.png";
+
+// Groceries Block-item images
+$groceries-img-one: "/src/assets/images/groceries--blue-img1.png";
+$groceries-img-two: "/src/assets/images/groceries--blue-img2.png";
+$groceries-img-three: "/src/assets/images/groceries--blue-img3.png";
+
+// Dashboard Block-item images
+$dashboard-img-one: "/src/assets/images/dashboard-tomato--img1.png";
+$dashboard-img-two: "/src/assets/images/dashboard-tomato--img2.png";
+$dashboard-img-three: "/src/assets/images/dashboard-tomato--img3.png";
+$dashboard-img-four: "/src/assets/images/dashboard-tomato--img4.png";
+
+@mixin set-block-item--image($bg-color) {
+  .block-item__img {
+    width: 100%;
+    height: 14rem;
+    background-size: cover;
+    background-position: center;
+
+    span {
+      display: block;
+      float: right;
+      padding: 0.5rem 1rem;
+      font-size: .8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      background-color: $bg-color;
+      border-radius: 0 0 0 16px;
+    }
+
+  }
+}
+
+@mixin set-block-item--content($bg-color) {
+  .block-item__content {
+    @include set-flexbox(column, space-between, center);
+    background-color: $bg-color;
+    min-height: 7rem;
+  }
+}
+
+@mixin set-block-item--button($color, $btn-color) {
+  .block-item--button {
+    width: 100%;
+    margin-top: auto;
+    padding: .6rem;
+    background-color: $color;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: $btn-color;
+  }
+}
+
+@mixin set-block-item($color, $bg-color, $btn-color) {
+  @include set-flexbox(column, space-between, center);
+  border: 4px solid $color;
+  border-radius: 16px;
+  overflow: hidden;
+
+  @include set-block-item--image($bg-color);
+  @include set-block-item--content($bg-color);
+  @include set-block-item--button($color, $btn-color);
+}
+
+.dashboard-main__grid {
+  @include set-main-grid;
+
+  .block-item {
+    @include set-block-item($tomato-60, $off-white, $off-white);
+  }
+}
+
+
+.block-item__img--recipes-all {
+  @include set-bg-image($recipe-img-one, $lime-80);
+}
+
+.block-item__img--recipes-surprise {
+  @include set-bg-image($recipe-img-two, $lime-80);
+}
+
+.block-item__img--recipes-add {
+  @include set-bg-image($recipe-img-three, $lime-80);
+}
+
+.block-item__img--shopping-mode {
+  @include set-bg-image($groceries-img-one, $blue-70);
+}
+
+.block-item__img--current-list {
+  @include set-bg-image($groceries-img-two, $blue-70);
+}
+
+.block-item__img--recent-lists {
+  @include set-bg-image($groceries-img-three, $blue-70);
+}
+
+.block-item__img--dash-shopping-list {
+  @include set-bg-image($dashboard-img-one, $tomato-60);
+}
+
+.block-item__img--dash-preferences {
+  @include set-bg-image($dashboard-img-two, $tomato-60);
+}
+
+.block-item__img--dash-recent-lists {
+  @include set-bg-image($dashboard-img-three, $tomato-60);
+}
+
+.block-item__img--dash-surprise-recipe {
+  @include set-bg-image($dashboard-img-four, $tomato-60);
+}
+

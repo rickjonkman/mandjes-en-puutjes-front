@@ -1,0 +1,304 @@
+h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 6rem;
+  line-height: 1.6;
+  color: #FCFBF8;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 300px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: -1.4px;
+  padding: 0.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  font-family: "Happy Monkey", system-ui;
+}
+
+p, span, a, li, input, button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #122315;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+  background-color: #FCFBF8;
+  color: #122315;
+}
+
+h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 6rem;
+  line-height: 1.6;
+  color: #FCFBF8;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 300px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: -1.4px;
+  padding: 0.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  font-family: "Happy Monkey", system-ui;
+}
+
+p, span, a, li, input, button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #122315;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+  background-color: #FCFBF8;
+  color: #122315;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-hidden {
+  display: none;
+}
+
+.nav-bar__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+@media only screen and (min-width: 300px) {
+  .nav-bar__menu {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .nav-bar__menu {
+    display: none;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .nav-bar__menu {
+    display: flex;
+  }
+}
+.nav-bar__menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar__menu ul li {
+  display: inline-block;
+  padding: 1.2rem 0.8rem;
+}
+.nav-bar__menu ul li a {
+  text-decoration: none;
+  color: #122315;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.hamburger--menu-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hamburger__close-icon {
+  width: 8rem;
+}
+
+.hamburger__full-menu--green {
+  background-color: #55DD4A;
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+.hamburger__full-menu--green a {
+  text-decoration: none;
+}
+.hamburger__full-menu--green li {
+  list-style: none;
+}
+.hamburger__full-menu--green h2 {
+  margin-left: 4rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--green h2:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.hamburger__full-menu--green p {
+  margin-left: 6rem;
+  font-size: 2rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--green p:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.hamburger__full-menu--pink {
+  background-color: #FE6867;
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+.hamburger__full-menu--pink a {
+  text-decoration: none;
+}
+.hamburger__full-menu--pink li {
+  list-style: none;
+}
+.hamburger__full-menu--pink h2 {
+  margin-left: 4rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--pink h2:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.hamburger__full-menu--pink p {
+  margin-left: 6rem;
+  font-size: 2rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--pink p:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.hamburger__full-menu--blue {
+  background-color: #82D8E2;
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+.hamburger__full-menu--blue a {
+  text-decoration: none;
+}
+.hamburger__full-menu--blue li {
+  list-style: none;
+}
+.hamburger__full-menu--blue h2 {
+  margin-left: 4rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--blue h2:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.hamburger__full-menu--blue p {
+  margin-left: 6rem;
+  font-size: 2rem;
+  color: #FCFBF8;
+}
+.hamburger__full-menu--blue p:hover {
+  margin-left: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/*# sourceMappingURL=nav.css.map */

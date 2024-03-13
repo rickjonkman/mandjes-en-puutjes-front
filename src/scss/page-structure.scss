@@ -1,0 +1,23 @@
+@import "mixin-containers";
+
+.outer-container-class {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header.header-class {
+  width: 90%;
+  max-width: 1400px;
+}
+
+main.main-class {
+  width: 90%;
+  max-width: 1400px;
+}
+
+footer.footer-class {
+  width: 100%;
+}
+

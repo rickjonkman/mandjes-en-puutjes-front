@@ -1,0 +1,45 @@
+@import "../mixin-containers";
+@import "../utils";
+@import "../typography";
+@import "../buttons";
+
+////// LOGIN //////
+.login-register-form__container {
+  @include set-login-register-form-container($tomato-100, $tomato-60);
+  padding: 1rem;
+}
+
+.login-register__form {
+  @include set-width(100%, 100%);
+  @include set-flexbox(column, center, flex-start);
+  @include set-bg-color-narrow-border($tomato-100, $tomato-60);
+  padding: .5rem;
+  margin: 6rem 0 4rem 0;
+
+  label {
+    @include set-flexbox(row, space-between, center);
+    @include set-input-label;
+    width: 100%;
+
+    input {
+      width: 70%;
+      padding: .2rem;
+      border: 1px solid $tomato-60;
+      border-radius: 8px;
+      font-size: 1.2rem;
+    }
+  }
+
+}
+
+.register-login__form--submit {
+  @include set-register-login-submit-button($tomato-60, $tomato-60, $off-white);
+  &:hover {
+    @include set-register-login-submit-button-hover($tomato-100);
+  }
+}
+
+
+#button__go-back {
+  @include set-go-back-button($tomato-60);
+}

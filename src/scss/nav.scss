@@ -1,0 +1,106 @@
+@import "mixin-containers";
+@import "media";
+@import "utils";
+@import "typography";
+
+////// NAV BAR //////
+.nav-bar {
+  @include set-flexbox(row, space-between, center);
+}
+
+.nav-hidden {
+  display: none;
+}
+
+.nav-bar__menu {
+  @include set-flexbox(row, space-between, center);
+  padding: 2rem 0;
+
+  @include responsive(phone) {
+    display: none;
+  }
+
+  @include responsive(tablet) {
+    display: none;
+  }
+
+  @include responsive(desktop-small) {
+    display: flex;
+  }
+
+  ul {
+    @include set-flexbox(row, space-between, center);
+  }
+
+  ul li {
+    display: inline-block;
+    padding: 1.2rem 0.8rem;
+  }
+
+  ul li a {
+    @include set-nav-link($text-color);
+  }
+
+}
+
+
+////// HAMBURGER //////
+@mixin set-hamburger-menu($color) {
+  background-color: $color;
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  h2 {
+    margin-left: 4rem;
+    color: $off-white;
+  }
+
+  h2:hover {
+    margin-left: 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  p {
+    margin-left: 6rem;
+    font-size: 2rem;
+    color: $off-white;
+  }
+
+  p:hover {
+    margin-left: 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.hamburger--menu-title {
+  @include set-flexbox(row, space-between, center);
+
+}
+
+#hamburger__close-icon {
+  width: 8rem;
+}
+
+.hamburger__full-menu--green {
+  @include set-hamburger-menu($lime-60);
+}
+
+.hamburger__full-menu--pink {
+  @include set-hamburger-menu($tomato-60);
+}
+
+.hamburger__full-menu--blue {
+  @include set-hamburger-menu($blue-70);
+}
