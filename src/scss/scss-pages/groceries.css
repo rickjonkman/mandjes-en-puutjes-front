@@ -1,0 +1,211 @@
+h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 6rem;
+  line-height: 1.6;
+  color: #FCFBF8;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 300px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: -1.4px;
+  padding: 0.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  font-family: "Happy Monkey", system-ui;
+}
+
+p, span, a, li, input, button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #122315;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+  background-color: #FCFBF8;
+  color: #122315;
+}
+
+.groceries-shopping-mode__menu {
+  background-color: #82D8E2;
+  border: 4px solid #82D8E2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.groceries-shopping-mode__menu--left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.groceries-shopping-mode__menu--right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.groceries-shopping-mode__form-class {
+  width: 100%;
+}
+
+.groceries-shopping-mode__add-grocery--button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #82D8E2;
+  border-radius: 8px;
+  background-color: #FCFBF8;
+  color: #122315;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.groceries-shopping-mode__input--container label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+}
+.groceries-shopping-mode__input--container label input {
+  width: 70%;
+  padding: 0.2rem;
+  border: 1px solid #122315;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.groceries-shopping-mode__button-group {
+  padding: 0.2rem;
+}
+
+.groceries-shopping-mode__button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #82D8E2;
+  border-radius: 8px;
+  background-color: #FCFBF8;
+  color: #122315;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.shopping-mode__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #F7FCFD;
+  border: 4px solid #82D8E2;
+  border-radius: 16px;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.shopping-mode__container .shopping-list__form {
+  width: 100%;
+}
+.shopping-mode__container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.shopping-mode__container ul li {
+  display: inline-block;
+  width: 100%;
+}
+.shopping-mode__container .list-item__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #CCF0F4;
+  border-radius: 16px;
+}
+.shopping-mode__container .list-item__container--buttons {
+  display: flex;
+}
+.shopping-mode__container .list-item__container--buttons button {
+  padding: 0.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+/*# sourceMappingURL=groceries.css.map */

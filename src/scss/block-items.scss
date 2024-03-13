@@ -70,6 +70,23 @@ $dashboard-img-four: "/src/assets/images/dashboard-tomato--img4.png";
   @include set-block-item--button($color, $btn-color);
 }
 
+.recipes-main__grid {
+  @include set-main-grid;
+
+  .block-item {
+    @include set-block-item($lime-60, $off-white, $off-white);
+  }
+}
+
+.groceries-main__grid {
+  @include set-main-grid;
+
+  .block-item {
+    @include set-block-item($blue-70, $off-white, $off-white);
+  }
+
+}
+
 .dashboard-main__grid {
   @include set-main-grid;
 

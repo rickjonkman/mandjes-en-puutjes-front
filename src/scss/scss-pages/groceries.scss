@@ -1,0 +1,94 @@
+@import "../mixin-containers";
+@import "../buttons";
+@import "../typography";
+
+////// SHOPPING MODE //////
+.groceries-shopping-mode__menu {
+  @include set-bg-color-thick-border($blue-70, $blue-70);
+  @include set-flexbox(row, space-between, center);
+  padding: 1rem;
+  margin-top: 2rem;
+
+  &--left-side {
+    @include set-flexbox(column, space-between, flex-start);
+    width: 100%;
+  }
+
+  &--right-side {
+    @include set-flexbox(column, space-between, flex-end);
+    width: 100%;
+  }
+}
+
+.groceries-shopping-mode__form-class {
+  width: 100%;
+}
+
+.groceries-shopping-mode__add-grocery--button {
+  @include set-add-grocery-button($off-white, $text-color, $blue-70);
+}
+
+.groceries-shopping-mode__input--container {
+
+  label {
+    @include set-flexbox(row, space-between, center);
+    @include set-input-label;
+    width: 100%;
+
+    input {
+      width: 70%;
+      padding: .2rem;
+      border: 1px solid $text-color;
+      border-radius: 8px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.groceries-shopping-mode__button-group {
+  padding: .2rem;
+}
+
+.groceries-shopping-mode__button {
+  @include set-add-grocery-button($off-white, $text-color, $blue-70);
+}
+
+.shopping-mode__container {
+  @include set-flexbox(column, space-between, flex-start);
+  @include set-bg-color-thick-border($blue-100, $blue-70);
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  .shopping-list__form {
+    width: 100%;
+  }
+
+  ul {
+    @include set-flexbox(column, space-between, flex-start);
+  }
+
+  ul li {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .list-item__container {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: $blue-90;
+    border-radius: 16px;
+  }
+
+  .list-item__container--buttons {
+    display: flex;
+
+    button {
+      @include set-icon-button;
+    }
+  }
+}

@@ -140,6 +140,106 @@ body {
   color: #122315;
 }
 
+.recipes-main__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 2rem;
+}
+.recipes-main__grid .block-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px solid #55DD4A;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.recipes-main__grid .block-item .block-item__img {
+  width: 100%;
+  height: 14rem;
+  background-size: cover;
+  background-position: center;
+}
+.recipes-main__grid .block-item .block-item__img span {
+  display: block;
+  float: right;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #FCFBF8;
+  border-radius: 0 0 0 16px;
+}
+.recipes-main__grid .block-item .block-item__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FCFBF8;
+  min-height: 7rem;
+}
+.recipes-main__grid .block-item .block-item--button {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.6rem;
+  background-color: #55DD4A;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: #FCFBF8;
+}
+
+.groceries-main__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 2rem;
+}
+.groceries-main__grid .block-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px solid #82D8E2;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.groceries-main__grid .block-item .block-item__img {
+  width: 100%;
+  height: 14rem;
+  background-size: cover;
+  background-position: center;
+}
+.groceries-main__grid .block-item .block-item__img span {
+  display: block;
+  float: right;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #FCFBF8;
+  border-radius: 0 0 0 16px;
+}
+.groceries-main__grid .block-item .block-item__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FCFBF8;
+  min-height: 7rem;
+}
+.groceries-main__grid .block-item .block-item--button {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.6rem;
+  background-color: #82D8E2;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: #FCFBF8;
+}
+
 .dashboard-main__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

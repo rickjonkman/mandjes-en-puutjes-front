@@ -42,3 +42,10 @@
 @mixin set-register-login-submit-button-hover($border-color) {
   border: 2px solid $border-color;
 }
+
+@mixin set-add-grocery-button($bg-color, $color, $border-color) {
+  @include set-register-login-submit-button($border-color, $bg-color, $color);
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: .5rem;
+}
