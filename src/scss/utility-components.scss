@@ -1,0 +1,25 @@
+@import "_utils.scss";
+@import "mixin-containers.scss";
+
+h3 {
+  color: $lime-80
+}
+
+.utility__is-loading {
+  @include set-bg-color-thick-border($lime-60, $lime-60);
+  @include set-flexbox(row, center, center);
+  flex-wrap: wrap;
+}
+
+.img--wrapper {
+    background-color: $lime-20;
+    overflow: hidden;
+    border-radius: 16px;
+    max-height: 25rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}

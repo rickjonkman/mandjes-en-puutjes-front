@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap");
 h1 {
   font-family: "Helvetica", sans-serif;
   font-size: 6rem;
   line-height: 1.6;
   color: #FCFBF8;
   text-transform: uppercase;
+  letter-spacing: -2;
 }
 @media only screen and (min-width: 300px) {
   h1 {
@@ -30,9 +33,24 @@ h2 {
   font-family: "Helvetica", sans-serif;
   font-size: 3rem;
 }
+@media only screen and (min-width: 300px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
 @media only screen and (min-width: 600px) {
   h2 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h2 {
     font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h2 {
+    font-size: 3rem;
   }
 }
 
@@ -54,6 +72,26 @@ p, span, a, li, input, button {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #122315;
+}
+@media only screen and (min-width: 300px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  p, span, a, li, input, button {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  p, span, a, li, input, button {
+    font-size: 1.2rem;
+  }
 }
 
 * {
@@ -75,6 +113,7 @@ h1 {
   line-height: 1.6;
   color: #FCFBF8;
   text-transform: uppercase;
+  letter-spacing: -2;
 }
 @media only screen and (min-width: 300px) {
   h1 {
@@ -101,9 +140,24 @@ h2 {
   font-family: "Helvetica", sans-serif;
   font-size: 3rem;
 }
+@media only screen and (min-width: 300px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
 @media only screen and (min-width: 600px) {
   h2 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h2 {
     font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h2 {
+    font-size: 3rem;
   }
 }
 
@@ -125,6 +179,26 @@ p, span, a, li, input, button {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #122315;
+}
+@media only screen and (min-width: 300px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  p, span, a, li, input, button {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  p, span, a, li, input, button {
+    font-size: 1.2rem;
+  }
 }
 
 * {

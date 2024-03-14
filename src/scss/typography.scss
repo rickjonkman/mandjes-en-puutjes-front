@@ -1,9 +1,18 @@
 
+
 @mixin set-input-label {
   margin-top: 1rem;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+@mixin set-input-text {
+  width: 100%;
+  padding: .2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
 }
 
 @mixin set-nav-link($nav-link-color) {
@@ -13,3 +22,4 @@
   text-transform: uppercase;
   letter-spacing: -1px;
 }
+

@@ -1,9 +1,11 @@
 
 @mixin set-button-default {
-  padding: .2rem;
+  padding: .4rem;
   border: none;
   cursor: pointer;
   transition: all .3s;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 @mixin set-icon-button {

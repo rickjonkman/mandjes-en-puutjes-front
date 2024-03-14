@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 
 ////// MEDIA //////
 ///////////////////
@@ -85,6 +86,7 @@ h1 {
   line-height: 1.6;
   color: $off-white;
   text-transform: uppercase;
+  letter-spacing: -2;
 
   @include responsive(phone) {
     font-size: 1.5rem;
@@ -107,8 +109,20 @@ h2 {
   font-family: $font-helvetica;
   font-size: 3rem;
 
+  @include responsive(phone) {
+    font-size: 1.2rem;
+  }
+
   @include responsive(tablet) {
+    font-size: 1.5rem;
+  }
+
+  @include responsive(desktop-small) {
     font-size: 2rem;
+  }
+
+  @include responsive(default) {
+    font-size: 3rem;
   }
 }
 
@@ -130,6 +144,22 @@ p, span, a, li, input, button {
   font-size: 1.2rem;
   line-height: 1.6;
   color: $text-color;
+
+  @include responsive(phone) {
+    font-size: .8rem;
+  }
+
+  @include responsive(tablet) {
+    font-size: .8rem;
+  }
+
+  @include responsive(desktop-small) {
+    font-size: 1rem;
+  }
+
+  @include responsive(default) {
+    font-size: 1.2rem;
+  }
 }
 
 

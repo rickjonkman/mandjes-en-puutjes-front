@@ -1,4 +1,4 @@
-import {allPages} from "../../../constants/allPages.js";
+import {allPages} from "../../../../constants/allPages.js";
 import {NavLink} from "react-router-dom";
 import CloseIcon from "/src/assets/icons/close-icon.svg";
 import "/src/scss/nav.scss";

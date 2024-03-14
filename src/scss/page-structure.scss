@@ -1,4 +1,5 @@
 @import "mixin-containers";
+@import "utils";
 
 .outer-container-class {
   width: 100%;
@@ -18,7 +19,50 @@ main.main-class {
 }
 
 footer.footer-class {
+  @include set-flexbox(row, space-between, center);
+  margin-top: 4rem;
+  padding: 1rem;
   width: 100%;
+  background-color: $lime-10;
+
+  .footer__text-section {
+    max-width: 65%;
+
+    h4 {
+      color: $lime-80;
+      font-size: 1.4rem;
+      font-family: $font-helvetica;
+    }
+
+    p {
+      color: $lime-100;
+    }
+  }
+
+  .footer__icons-section {
+    width: 20%;
+      @include set-flexbox(row, space-between, center);
+
+    #footer--icon {
+      max-width: 2rem;
+      background-color: transparent;
+      border: none
+    }
+
+    #footer--novi-button {
+      max-width: 2.4rem;
+      background-color: transparent;
+      border: none;
+
+      #footer--novi-icon {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
+    }
+  }
+
+
 }
 
 

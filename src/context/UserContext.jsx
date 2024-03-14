@@ -57,7 +57,6 @@ const UserContextProvider = ({children}) => {
                 createdRecipes: response.data.createdRecipes,
                 savedRecipes: response.data.savedRecipes,
             })
-            console.log(response)
         } catch (e) {
             console.error(e);
             setError(e);
@@ -66,7 +65,6 @@ const UserContextProvider = ({children}) => {
         }
     }
 
-    console.log(userDetails);
 
 
     const userObject = {

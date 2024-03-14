@@ -1,0 +1,184 @@
+@import "src/scss/mixin-containers";
+@import "src/scss/utils";
+@import "src/scss/buttons";
+
+.recipe__title {
+  @include set-recipe-page-title($lime-60, $lime-60);
+  padding: 2rem;
+
+  p {
+    float: right;
+    font-family: $font-monkey;
+    background-color: $off-white;
+    padding: .5rem;
+    border-radius: 16px;
+  }
+}
+
+////// TOP SECTION //////
+.recipe-page__top-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem auto;
+
+  .recipe__top-info--article, .recipe__image--class {
+    flex: 1 1 48%;
+  }
+}
+
+.recipe__top-info--article {
+  @include set-bg-color-thick-border($lime-100, $lime-60);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.recipe__image--class {
+  @include set-bg-color-thick-border($lime-100, $lime-60);
+  overflow: hidden;
+  border-radius: 16px;
+  max-height: 20rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+.recipe-page__mid-section {
+  @include set-flexbox(row, space-between, flex-start);
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem auto;
+
+  .recipe-page__left-narrow {
+    width: 33%;
+  }
+
+  .recipe-page__right-wide {
+    width: 63%;
+
+  }
+}
+
+.recipe__ingredients-section--class {
+  @include set-bg-color-thick-border($lime-100, $lime-40);
+  @include set-flexbox(column, space-between, flex-start);
+  padding: 2rem;
+}
+
+.servings-calculator__container {
+  @include set-bg-color-narrow-border($lime-100, $lime-60);
+  @include set-flexbox(row, space-between, center);
+  width: 100%;
+  padding: .5rem .8rem;
+  background-color: white;
+}
+
+.servings-calculator__buttons {
+  display: flex;
+  gap: .5rem;
+
+  #calculator-button {
+    @include set-flexbox(row, center, center);
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+.ingredients-list__container {
+  width: 100%;
+
+  ul {
+    @include set-flexbox(column, flex-start, flex-start);
+    margin-top: 1rem;
+  }
+
+  ul li {
+    display: inline-block;
+    width: 100%;
+    border-bottom: $lime-60 1px solid;
+  }
+
+  ul li label {
+    @include set-flexbox(row, space-between, center);
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .ingredient__list-item--container {
+    width: 40%;
+    @include set-flexbox(row, space-between, center);
+  }
+
+  .ingredient__list-item--measurement {
+    @include set-flexbox(row, center, center);
+
+    > p {
+      margin: 0 .5rem;
+    }
+  }
+}
+
+.recipe-page__right-wide {
+  @include set-flexbox(column, flex-start, flex-start);
+  width: 100%;
+}
+
+.recipe-page__save-section {
+  @include set-bg-color-thick-border($lime-80, $lime-40);
+  @include set-flexbox(row, space-between, center);
+  width: 100%;
+  padding: 1rem;
+
+  .save-section__text {
+    @include set-flexbox(column, flex-start, center);
+    gap: .5rem;
+  }
+
+  .save-section__text p {
+    font-family: $font-monkey;
+    color: $lime-10;
+  }
+
+  .save-section__text p span {
+    background-color: $off-white;
+    padding: .5rem;
+    border-radius: 4px;
+  }
+
+  .save-section__button--save {
+    @include set-button-default;
+    background-color: $off-white;
+    border-radius: 8px;
+  }
+}
+
+.recipe-page__instructions-section {
+  @include set-bg-color-thick-border($lime-90, $lime-40);
+  padding: 1rem;
+  margin-top: 2rem;
+
+  .recipe-instructions__instruction {
+    display: flex;
+    margin: 1rem;
+
+    h1 {
+      margin-right: 1rem;
+    }
+
+    p {
+      font-family: $font-monkey;
+    }
+  }
+}

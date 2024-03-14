@@ -1,13 +1,13 @@
 import {useContext, useState} from "react";
-import Logo from "../../../assets/svg/logo--dark-color.svg";
+import Logo from "../../../../assets/svg/logo--dark-color.svg";
 import ImageWrapper from "../../image/ImageWrapper.jsx";
 import NavBarMenu from "./NavBarMenu.jsx";
-import {menuItems} from "../../../constants/menuItems.js";
+import {menuItems} from "../../../../constants/menuItems.js";
 import {NavLink} from "react-router-dom";
 import HamburgerIcon from "../nav--hamburger/HamburgerIcon.jsx";
 import "/src/scss/nav.scss";
 import HamburgerMenu from "../nav--hamburger/HamburgerMenu.jsx";
-import {ThemeColorContext} from "../../../context/ThemeColorContext.jsx";
+import {ThemeColorContext} from "../../../../context/ThemeColorContext.jsx";
 
 
 const NavBarMain = ({ hamburgerIcon }) => {

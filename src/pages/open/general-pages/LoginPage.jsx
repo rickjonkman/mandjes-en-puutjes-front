@@ -1,11 +1,11 @@
 import OuterContainer from "../../../components/structure/OuterContainer.jsx";
 import Header from "../../../components/structure/Header.jsx";
-import PageTitle from "../../../components/page-title/PageTitle.jsx";
-import Form from "../../../components/forms/Form.jsx";
-import IconButton from "../../../components/buttons/IconButton.jsx";
+import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
+import Form from "../../../components/ui/forms/Form.jsx";
+import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
 import GoBackIcon from "/src/assets/icons/chevron-off-white.svg";
-import SubmitButton from "../../../components/buttons/SubmitButton.jsx";
+import SubmitButton from "../../../components/ui/buttons/SubmitButton.jsx";
 import {useContext, useState} from "react";
 import "/src/scss/scss-pages/login-register.scss";
 import Main from "../../../components/structure/Main.jsx";

@@ -1,14 +1,14 @@
 import OuterContainer from "../../../components/structure/OuterContainer.jsx";
 import Header from "../../../components/structure/Header.jsx";
-import PageTitle from "../../../components/page-title/PageTitle.jsx";
+import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
 import Main from "../../../components/structure/Main.jsx";
 import GoBackIcon from "../../../assets/icons/chevron-off-white.svg";
-import IconButton from "../../../components/buttons/IconButton.jsx";
+import IconButton from "../../../components/ui/buttons/IconButton.jsx";
 import {useNavigate} from "react-router-dom";
-import Form from "../../../components/forms/Form.jsx";
+import Form from "../../../components/ui/forms/Form.jsx";
 import {useContext, useState} from "react";
-import FormInput from "../../../components/forms/FormInput.jsx";
-import SubmitButton from "../../../components/buttons/SubmitButton.jsx";
+import FormInput from "../../../components/ui/forms/FormInput.jsx";
+import SubmitButton from "../../../components/ui/buttons/SubmitButton.jsx";
 import ErrorPage from "../../util-pages/ErrorPage.jsx";
 import LoadingPage from "../../util-pages/LoadingPage.jsx";
 

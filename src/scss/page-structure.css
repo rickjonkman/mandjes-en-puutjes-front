@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap");
 h1 {
   font-family: "Helvetica", sans-serif;
   font-size: 6rem;
   line-height: 1.6;
   color: #FCFBF8;
   text-transform: uppercase;
+  letter-spacing: -2;
 }
 @media only screen and (min-width: 300px) {
   h1 {
@@ -30,9 +33,24 @@ h2 {
   font-family: "Helvetica", sans-serif;
   font-size: 3rem;
 }
+@media only screen and (min-width: 300px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
 @media only screen and (min-width: 600px) {
   h2 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h2 {
     font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h2 {
+    font-size: 3rem;
   }
 }
 
@@ -54,6 +72,133 @@ p, span, a, li, input, button {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #122315;
+}
+@media only screen and (min-width: 300px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  p, span, a, li, input, button {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  p, span, a, li, input, button {
+    font-size: 1.2rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+  background-color: #FCFBF8;
+  color: #122315;
+}
+
+h1 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 6rem;
+  line-height: 1.6;
+  color: #FCFBF8;
+  text-transform: uppercase;
+  letter-spacing: -2;
+}
+@media only screen and (min-width: 300px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-family: "Helvetica", sans-serif;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 300px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: -1.4px;
+  padding: 0.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  font-family: "Happy Monkey", system-ui;
+}
+
+p, span, a, li, input, button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #122315;
+}
+@media only screen and (min-width: 300px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  p, span, a, li, input, button {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  p, span, a, li, input, button {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  p, span, a, li, input, button {
+    font-size: 1.2rem;
+  }
 }
 
 * {
@@ -87,7 +232,47 @@ main.main-class {
 }
 
 footer.footer-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  padding: 1rem;
   width: 100%;
+  background-color: #092206;
+}
+footer.footer-class .footer__text-section {
+  max-width: 65%;
+}
+footer.footer-class .footer__text-section h4 {
+  color: #A6EDA1;
+  font-size: 1.4rem;
+  font-family: "Helvetica", sans-serif;
+}
+footer.footer-class .footer__text-section p {
+  color: #F7FDF6;
+}
+footer.footer-class .footer__icons-section {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+footer.footer-class .footer__icons-section #footer--icon {
+  max-width: 2rem;
+  background-color: transparent;
+  border: none;
+}
+footer.footer-class .footer__icons-section #footer--novi-button {
+  max-width: 2.4rem;
+  background-color: transparent;
+  border: none;
+}
+footer.footer-class .footer__icons-section #footer--novi-button #footer--novi-icon {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=page-structure.css.map */

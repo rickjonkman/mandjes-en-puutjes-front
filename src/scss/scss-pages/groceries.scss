@@ -1,6 +1,7 @@
 @import "../mixin-containers";
 @import "../buttons";
 @import "../typography";
+@import "../utils";
 
 ////// SHOPPING MODE //////
 .groceries-shopping-mode__menu {
@@ -20,40 +21,35 @@
   }
 }
 
-.groceries-shopping-mode__form-class {
+.add-product__form {
   width: 100%;
-}
-
-.groceries-shopping-mode__add-grocery--button {
-  @include set-add-grocery-button($off-white, $text-color, $blue-70);
-}
-
-.groceries-shopping-mode__input--container {
 
   label {
-    @include set-flexbox(row, space-between, center);
+    @include set-flexbox(column, space-between, flex-start);
     @include set-input-label;
     width: 100%;
 
     input {
-      width: 70%;
-      padding: .2rem;
-      border: 1px solid $text-color;
-      border-radius: 8px;
-      font-size: 1.2rem;
+      @include set-input-text;
     }
+  }
+
+  .add-product__button {
+    @include set-add-grocery-button($off-white, $text-color, $blue-70);
   }
 }
 
 .groceries-shopping-mode__button-group {
   padding: .2rem;
+
+  .groceries-shopping-mode__button {
+    @include set-add-grocery-button($off-white, $text-color, $blue-70);
+  }
 }
 
-.groceries-shopping-mode__button {
-  @include set-add-grocery-button($off-white, $text-color, $blue-70);
-}
 
-.shopping-mode__container {
+
+.shopping-list__container-class {
   @include set-flexbox(column, space-between, flex-start);
   @include set-bg-color-thick-border($blue-100, $blue-70);
   width: 100%;
@@ -71,17 +67,27 @@
   ul li {
     display: inline-block;
     width: 100%;
-  }
-
-  .list-item__container {
-    @include set-flexbox(row, space-between, center);
-    width: 100%;
-    padding: .5rem 1rem;
-    font-size: .8rem;
-    text-transform: uppercase;
-    font-weight: 700;
+    margin-top: .2rem;
+    padding: .2rem;
     background-color: $blue-90;
     border-radius: 16px;
+
+    .list-item__container {
+      @include set-flexbox(row, space-between, center);
+      width: 100%;
+      font-family: $font-monkey;
+      font-size: 1.2rem;
+    }
+
+    .list-item__container--checkbox {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      input {
+        margin-right: .5rem;
+      }
+    }
   }
 
   .list-item__container--buttons {
@@ -90,5 +96,9 @@
     button {
       @include set-icon-button;
     }
+  }
+
+  .shopping-list__submit-button {
+    @include set-register-login-submit-button($blue-70, $blue-70, $off-white);
   }
 }

@@ -2,7 +2,6 @@ import {createContext, useEffect, useState} from "react";
 import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import axios from "axios";
 import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
-import {useNavigate} from "react-router-dom";
 
 
 export const AuthContext = createContext({ });
@@ -78,7 +77,6 @@ const AuthContextProvider = ({children}) => {
         });
     }
 
-    console.log(authenticated);
 
 
     const authObject = {

@@ -1,4 +1,5 @@
 import {createContext, useEffect, useState} from "react";
+import axios from "axios";
 
 
 export const GroceriesContext = createContext({ });
@@ -7,32 +8,37 @@ const GroceriesContextProvider = ({ children }) => {
 
     const groceriesFromLocalStorage = JSON.parse(localStorage.getItem('currentGroceries'));
     const [currentGroceries, setCurrentGroceries] = useState(groceriesFromLocalStorage || []);
-
+    const [grocery, setGrocery] = useState({
+        id: '',
+        name: '',
+        inStock: false,
+    });
 
     useEffect(() => {
         localStorage.setItem('currentGroceries', JSON.stringify(currentGroceries));
+
+        return console.log('GroceriesContextProvider mounted');
     }, [currentGroceries]);
 
     const handleAddProduct = (productName, ) => {
-        const newProduct = {
+        setGrocery({
             id: new Date().getTime(),
             name: productName,
-            checked: false,
-            notFound: false,
-        }
-        setCurrentGroceries([...currentGroceries, newProduct]);
+            inStock: false,
+        });
+        setCurrentGroceries([...currentGroceries, grocery]);
     }
 
-    const handleRemoveProduct = (id) => {
-        const newList = currentGroceries.filter((grocery) => grocery.id !== id);
-        setCurrentGroceries(newList);
-    }
+    // const handleRemoveProduct = (id) => {
+    //     const newList = currentGroceries.filter((grocery) => grocery.id !== id);
+    //     setCurrentGroceries(newList);
+    // }
 
     const handleClearList = () => {
         setCurrentGroceries([]);
     }
 
-    const handleSetProductToStock = (id) => {
+    const handleToggleGrocery = (id) => {
         const newList = currentGroceries.map((grocery) => {
             if (grocery.id === id) {
                 grocery.checked = !grocery.checked;
@@ -42,30 +48,15 @@ const GroceriesContextProvider = ({ children }) => {
         setCurrentGroceries(newList);
     }
 
-    const handleMarkAsNotFound = (id) => {
-        const newList = currentGroceries.map((grocery) => {
-            if (grocery.id === id) {
-                grocery.notFound = !grocery.notFound;
-            }
-            return grocery;
-        });
-        setCurrentGroceries(newList);
-    }
 
-    const handleSubmitList = () => {
-        console.log('submitting list');
-    }
 
 
     const groceriesObject = {
         currentGroceries,
         setCurrentGroceries,
         handleAddProduct,
-        handleRemoveProduct,
         handleClearList,
-        handleSetProductToStock,
-        handleMarkAsNotFound,
-        handleSubmitList,
+        handleToggleGrocery,
     }
 
     return (

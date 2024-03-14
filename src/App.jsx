@@ -1,4 +1,3 @@
-
 import './App.css'
 import {Route, Routes} from "react-router-dom";
 import LandingPage from "./pages/open/general-pages/LandingPage.jsx";
@@ -21,32 +20,47 @@ import {AuthContext} from "./context/AuthContext.jsx";
 
 function App() {
 
-  const { authenticated } = useContext(AuthContext);
+    const {authenticated} = useContext(AuthContext);
 
-  return (
-    <>
-        <Routes>
+    return (
+        <>
+            <Routes>
 
-          <Route index element={<LandingPage /> } />
-          <Route path="/general/login" element={<LoginPage />} />
-          <Route path="/general/register" element={<RegisterPage />} />
-          <Route path="/general/dashboard" element={authenticated === true ? <DashboardPage /> : <PleaseRegister /> } />
+                <Route index element={<LandingPage/>}/>
+                <Route path="/general/login" element={<LoginPage/>}/>
+                <Route path="/general/register" element={<RegisterPage/>}/>
+                <Route path="/general/dashboard"
+                       element={authenticated === true ? <DashboardPage/> : <PleaseRegister/>}/>
 
-          <Route path="/groceries/main" element={authenticated === true ? <GroceriesMainPage /> : <PleaseRegister /> } />
-          <Route path="/groceries/recent-lists" element={authenticated === true ? <RecentListsPage /> : <PleaseRegister /> } />
-          <Route path="/groceries/current-list" element={authenticated === true ? <CurrentListPage /> : <PleaseRegister /> } />
-          <Route path="/groceries/shopping-mode" element={authenticated === true ? <ShoppingModePage /> : <PleaseRegister /> } />
 
-          <Route path="/recipes/main" element={<RecipesMainPage />} />
-          <Route path="/recipes/all" element={<AllRecipesPage />} />
-          <Route path="/recipes/saved" element={authenticated === true ? <SavedRecipesPage /> : <PleaseRegister /> } />
-          <Route path="/recipes/surprise" element={authenticated === true ? <SurpriseRecipePage /> : <PleaseRegister /> } />
-          <Route path="/recipes/:recipeId" element={<RecipePage />} />
-          <Route path="/recipes/new" element={authenticated === true ? <RecipeNew /> : <PleaseRegister /> } />
+                    <Route path="/groceries/main"
+                           element={authenticated === true ? <GroceriesMainPage/> : <PleaseRegister/>}/>
+                    <Route path="/groceries/recent-lists"
+                           element={authenticated === true ? <RecentListsPage/> : <PleaseRegister/>}/>
+                    <Route path="/groceries/current-list"
+                           element={authenticated === true ? <CurrentListPage/> : <PleaseRegister/>}/>
+                    <Route path="/groceries/shopping-mode"
+                           element={authenticated === true ? <ShoppingModePage/> : <PleaseRegister/>}/>
 
-        </Routes>
-    </>
-  )
+                <Route path="/recipes/main" element={<RecipesMainPage/>}/>
+
+                    <Route path="/recipes/all" element={<AllRecipesPage/>}/>
+
+
+                <Route path="/recipes/saved"
+                       element={authenticated === true ? <SavedRecipesPage/> : <PleaseRegister/>}/>
+                <Route path="/recipes/surprise"
+                       element={authenticated === true ? <SurpriseRecipePage/> : <PleaseRegister/>}/>
+
+
+                    <Route path="/recipes/:recipeId" element={<RecipePage/>}/>
+
+
+                <Route path="/recipes/new" element={authenticated === true ? <RecipeNew/> : <PleaseRegister/>}/>
+
+            </Routes>
+        </>
+    )
 }
 
 export default App

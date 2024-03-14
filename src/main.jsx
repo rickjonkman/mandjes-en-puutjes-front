@@ -6,7 +6,6 @@ import {BrowserRouter as Router} from "react-router-dom";
 import AuthContextProvider from "./context/AuthContext.jsx";
 import UserContextProvider from "./context/UserContext.jsx";
 import ThemeColorContextProvider from "./context/ThemeColorContext.jsx";
-import GroceriesContextProvider from "./context/GroceriesContext.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -14,9 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <UserContextProvider>
                 <Router>
                     <ThemeColorContextProvider>
-                        <GroceriesContextProvider>
-                            <App/>
-                        </GroceriesContextProvider>
+                        <App/>
                     </ThemeColorContextProvider>
                 </Router>
             </UserContextProvider>

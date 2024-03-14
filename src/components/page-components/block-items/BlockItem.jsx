@@ -1,4 +1,4 @@
-import {addHashTag} from "../../helpers/addHashTag.js";
+import {addHashTag} from "../../../helpers/addHashTag.js";
 import "/src/scss/block-items.scss";
 
 const BlockItem = ({ blockItemSubject, blockItemImg, blockItemTitle, blockItemSubtitle, blockItemButtonClass, buttonText }) => {
