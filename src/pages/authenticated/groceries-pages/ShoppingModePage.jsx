@@ -5,8 +5,8 @@ import HamIcon from "../../../assets/icons/hamburger-blue.svg";
 import Main from "../../../components/structure/Main.jsx";
 import "/src/scss/scss-pages/groceries.scss";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
-import GroceriesMenu from "../../../components/page-components/shopping-lists/GroceriesMenu.jsx";
-import ShoppingList from "../../../components/page-components/shopping-lists/ShoppingList.jsx";
+import GroceriesMenu from "../../../components/page-components/groceries/shopping-mode/GroceriesMenu.jsx";
+import ShoppingList from "../../../components/page-components/groceries/shopping-mode/ShoppingList.jsx";
 import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
 import Footer from "../../../components/structure/Footer.jsx";
 

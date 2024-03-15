@@ -6,6 +6,7 @@ import Header from "../../../components/structure/Header.jsx";
 import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.jsx";
 import HamIcon from "../../../assets/icons/hamburger-blue.svg";
 import {groceriesMainItems} from "../../../constants/groceriesMainItems.js";
+import Footer from "../../../components/structure/Footer.jsx";
 
 
 const GroceriesMainPage = () => {
@@ -43,6 +44,8 @@ const GroceriesMainPage = () => {
                     </div>
 
                 </Main>
+
+                <Footer />
 
             </OuterContainer>
         </>

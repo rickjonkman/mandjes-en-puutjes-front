@@ -8,6 +8,7 @@ import PageTitle from "../../../components/page-components/page-title/PageTitle.
 import Main from "../../../components/structure/Main.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
 import {useContext} from "react";
+import Footer from "../../../components/structure/Footer.jsx";
 
 
 const DashboardPage = () => {
@@ -44,6 +45,8 @@ const DashboardPage = () => {
                 </div>
 
             </Main>
+
+            <Footer />
 
         </OuterContainer>
     );

@@ -48,7 +48,6 @@
 }
 
 
-
 .shopping-list__container-class {
   @include set-flexbox(column, space-between, flex-start);
   @include set-bg-color-thick-border($blue-100, $blue-70);
@@ -100,5 +99,40 @@
 
   .shopping-list__submit-button {
     @include set-register-login-submit-button($blue-70, $blue-70, $off-white);
+  }
+}
+
+////// RECENT LISTS //////
+.recent-shopping-lists__container {
+  @include set-bg-color-thick-border($blue-90, $blue-70);
+  @include set-flexbox(column, space-between, center);
+  margin-top: 2rem;
+
+  .recent-shopping-list__class {
+    @include set-bg-color-narrow-border($blue-100, $blue-70);
+    @include set-flexbox(column, space-between, flex-start);
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .recent-shopping-list__title-container {
+    @include set-bg-color-narrow-border($blue-70, $blue-70);
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: auto;
+  }
+
+  li {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    padding: .5rem;
+    background-color: $blue-100;
+    border-bottom: 1px solid $blue-70;
+
+    #recent-list-item__add-to-new-list {
+      @include set-icon-button;
+      @include set-flexbox(row, space-between, flex-end);
+    }
   }
 }

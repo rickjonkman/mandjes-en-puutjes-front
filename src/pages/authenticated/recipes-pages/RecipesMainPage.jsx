@@ -6,9 +6,17 @@ import Main from "../../../components/structure/Main.jsx";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
 import {recipesMainItems} from "../../../constants/recipesMainItems.js";
 import BlockItem from "../../../components/page-components/block-items/BlockItem.jsx";
+import Footer from "../../../components/structure/Footer.jsx";
+import {useContext} from "react";
+import {AuthContext} from "../../../context/AuthContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 const RecipesMainPage = () => {
+
+    const { authenticated } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     return (
         <OuterContainer>
 
@@ -26,12 +34,14 @@ const RecipesMainPage = () => {
                             return (
                                 <BlockItem
                                     key={index}
-                                    blockItemImg={item.imgClass}
+                                    blockItemImg={item.image.imgClass}
                                     blockItemSubject="Recepten"
-                                    blockItemTitle={item.blockItemTitle}
-                                    blockItemSubtitle={item.blockItemSubtitle}
-                                    blockItemButtonClass={item.blockItemButtonClass}
-                                    buttonText={item.buttonText}
+                                    blockItemTitle={item.content.blockItemTitle}
+                                    blockItemSubtitle={item.content.blockItemSubtitle}
+                                    blockItemButtonClass={item.button.blockItemButtonClass}
+                                    buttonText={item.button.buttonText}
+                                    authenticationRequired={item.authenticationRequired}
+                                    onButtonClick={() => navigate(item.button.navigateTo)}
                                 />
                             )
                         })
@@ -39,6 +49,8 @@ const RecipesMainPage = () => {
                 </div>
 
             </Main>
+
+            <Footer />
 
         </OuterContainer>
     );

@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react';
-import Form from "../../ui/forms/Form.jsx";
-import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
-import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import Form from "../../../ui/forms/Form.jsx";
+import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
+import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 
 
 const AddProductForm = () => {

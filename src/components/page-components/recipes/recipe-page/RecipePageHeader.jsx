@@ -1,9 +1,9 @@
 
 import RecipeTopInfo from "./RecipeTopInfo.jsx";
-import RecipeTitle from "../page-title/RecipeTitle.jsx";
+import RecipeTitle from "../../page-title/RecipeTitle.jsx";
 import RecipeImage from "./RecipeImage.jsx";
 import {useEffect, useState} from "react";
-import useFetchImage from "../../../hooks/useFetchImage.js";
+import useFetchImage from "../../../../hooks/useFetchImage.js";
 
 const RecipePageHeader = ({ recipe }) => {
 

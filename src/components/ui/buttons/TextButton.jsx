@@ -1,10 +1,11 @@
+const TextButton = ({ buttonClass, onClickHandler, buttonText }) => {
 
 
-const TextButton = () => {
+
     return (
-        <div>
-
-        </div>
+        <button className={buttonClass} onClick={onClickHandler} type="button">
+            {buttonText}
+        </button>
     );
 };
 

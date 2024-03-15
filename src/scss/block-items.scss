@@ -70,12 +70,20 @@ $dashboard-img-four: "/src/assets/images/dashboard-tomato--img4.png";
   @include set-block-item--button($color, $btn-color);
 }
 
+
+
 .recipes-main__grid {
   @include set-main-grid;
 
   .block-item {
     @include set-block-item($lime-60, $off-white, $off-white);
   }
+
+  .block-item--not-auth {
+    @include set-block-item($lime-10, $off-white, $off-white);
+
+  }
+
 }
 
 .groceries-main__grid {
@@ -104,8 +112,18 @@ $dashboard-img-four: "/src/assets/images/dashboard-tomato--img4.png";
   @include set-bg-image($recipe-img-two, $lime-80);
 }
 
+.block-item__img--recipes-surprise--not-auth {
+  @include set-bg-image($recipe-img-two, $lime-80);
+  filter: grayscale(100%);
+}
+
 .block-item__img--recipes-add {
   @include set-bg-image($recipe-img-three, $lime-80);
+}
+
+.block-item__img--recipes-add--not-auth {
+  @include set-bg-image($recipe-img-three, $lime-80);
+  filter: grayscale(100%);
 }
 
 .block-item__img--shopping-mode {

@@ -1,29 +1,29 @@
 
 export const recipeModel = {
-    recipeId: 0,
-    recipeName: "",
+    recipeName: '',
+    prepTime: {
+        hour: 0,
+        min: 0,
+    },
     servings: 0,
-    prepTime: 0,
-    imageFileName: '',
-    tagDTOList: [
+    tags: [
+        { tagName: '' }
+    ],
+    supplies: [
+        { name: '' }
+    ],
+    ingredients: [
         {
-            tagName: '',
+            ingredientName: '',
+            amount: '',
+            unit: ''
         }
     ],
-    instructionsDTO: [
+    instructions: [
         {
             step: 0,
             instruction: '',
         }
     ],
-    supplies: [],
-    ingredientsMeasured: [
-        {
-            ingredientName: '',
-            amount: 0,
-            unit: '',
-        }
-    ],
     creator: '',
-    savedByUsers: 0,
-}
+};

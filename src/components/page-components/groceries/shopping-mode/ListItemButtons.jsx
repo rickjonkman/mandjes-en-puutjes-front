@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from "../../ui/buttons/IconButton.jsx";
+import IconButton from "../../../ui/buttons/IconButton.jsx";
 import RemoveIcon from "/src/assets/icons/not-found-icon.svg";
 
 const ListItemButtons = ({ handleRemoveGrocery }) => {

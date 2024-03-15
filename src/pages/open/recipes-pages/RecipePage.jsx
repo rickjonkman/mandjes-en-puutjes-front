@@ -5,13 +5,14 @@ import Header from "../../../components/structure/Header.jsx";
 import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.jsx";
 import HamIcon from "../../../assets/icons/hamburger-green.svg";
 import Main from "../../../components/structure/Main.jsx";
-import RecipePageHeader from "../../../components/page-components/recipes/RecipePageHeader.jsx";
-import {recipeModel} from "../../../models/recipeModel.js";
+import RecipePageHeader from "../../../components/page-components/recipes/recipe-page/RecipePageHeader.jsx";
+import {recipeModelOld} from "../../../models/recipeModelOld.js";
 import axios from "axios";
 import {_imageEncode} from "../../../utilities/imageEncoder.js";
-import RecipePageMidSection from "../../../components/page-components/recipes/RecipePageMidSection.jsx";
+import RecipePageMidSection from "../../../components/page-components/recipes/recipe-page/RecipePageMidSection.jsx";
 import "../../../scss/scss-pages/recipe-page.scss";
 import useFetchImage from "../../../hooks/useFetchImage.js";
+import Footer from "../../../components/structure/Footer.jsx";
 
 
 const RecipePage = () => {
@@ -19,7 +20,7 @@ const RecipePage = () => {
     const {recipeId} = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [loadedRecipe, setLoadedRecipe] = useState(recipeModel || {});
+    const [loadedRecipe, setLoadedRecipe] = useState(recipeModelOld || {});
 
     useEffect(() => {
         void fetchRecipe(recipeId);
@@ -62,6 +63,8 @@ const RecipePage = () => {
                 <RecipePageMidSection recipe={loadedRecipe}/>
 
             </Main>
+
+            <Footer />
 
         </OuterContainer>
     );

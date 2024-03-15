@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 
 
 const ShoppingListItem = ({ grocery }) => {

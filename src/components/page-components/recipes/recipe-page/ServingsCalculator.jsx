@@ -1,7 +1,7 @@
 import React from 'react';
-import IconButton from "../../ui/buttons/IconButton.jsx";
-import MinusIcon from "../../../assets/icons/minus-icon.svg";
-import PlusIcon from "../../../assets/icons/add-icon.svg";
+import IconButton from "../../../ui/buttons/IconButton.jsx";
+import MinusIcon from "../../../../assets/icons/minus-icon.svg";
+import PlusIcon from "../../../../assets/icons/add-icon.svg";
 
 const ServingsCalculator = ({ servings }) => {
 

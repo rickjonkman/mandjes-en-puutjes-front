@@ -1,7 +1,7 @@
 
 import ShoppingListForm from "./ShoppingListForm.jsx";
 import {useContext} from "react";
-import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 import axios from "axios";
 
 const ShoppingList = ({ shoppingListTitle }) => {

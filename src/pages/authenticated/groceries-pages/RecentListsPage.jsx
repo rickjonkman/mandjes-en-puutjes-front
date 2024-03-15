@@ -4,19 +4,12 @@ import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.j
 import HamburgerIcon from "/src/assets/icons/hamburger-blue.svg";
 import Main from "../../../components/structure/Main.jsx";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
+import Footer from "../../../components/structure/Footer.jsx";
+import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
+import RecentListsContainer from "../../../components/page-components/groceries/recent-lists/RecentListsContainer.jsx";
+
 
 const RecentListsPage = () => {
-
-    const fetchShoppingLists = async () => {
-
-        try {
-            const response = await axios.get('http://localhost:3001/shopping-lists');
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
 
     return (
         <OuterContainer>
@@ -27,7 +20,14 @@ const RecentListsPage = () => {
 
             <Main>
                 <PageTitle pageTitleClass="groceries-recent-lists__title" pageTitle="Recente lijsten" />
+
+                <GroceriesContextProvider>
+                    <RecentListsContainer />
+                </GroceriesContextProvider>
+
             </Main>
+
+            <Footer />
 
         </OuterContainer>
     );

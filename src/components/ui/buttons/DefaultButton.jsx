@@ -1,10 +1,10 @@
 
 
-const DefaultButton = () => {
+const DefaultButton = ({ buttonClass, onClickHandler, buttonText }) => {
     return (
-        <div>
-
-        </div>
+        <button className={buttonClass} type="button" onClick={onClickHandler}>
+            {buttonText}
+        </button>
     );
 };
 

@@ -1,14 +1,27 @@
 import {addHashTag} from "../../../helpers/addHashTag.js";
 import "/src/scss/block-items.scss";
+import {useContext} from "react";
+import {AuthContext} from "../../../context/AuthContext.jsx";
 
-const BlockItem = ({ blockItemSubject, blockItemImg, blockItemTitle, blockItemSubtitle, blockItemButtonClass, buttonText }) => {
+const BlockItem = ({
+                       blockItemSubject,
+                       blockItemImg,
+                       blockItemTitle,
+                       blockItemSubtitle,
+                       blockItemButtonClass,
+                       buttonText,
+                       authenticationRequired,
+                       onButtonClick
+                   }) => {
 
+    const {authenticated} = useContext(AuthContext);
 
 
     return (
-        <article className="block-item">
+        <article className={!authenticated && authenticationRequired ? 'block-item--not-auth' : 'block-item'}>
 
-            <div className={`block-item__img ${blockItemImg}`}>
+            <div
+                className={!authenticated && authenticationRequired ? `block-item__img ${blockItemImg}--not-auth` : `block-item__img ${blockItemImg}`}>
 
                 <span>{addHashTag(blockItemSubject)}</span>
 
@@ -26,7 +39,10 @@ const BlockItem = ({ blockItemSubject, blockItemImg, blockItemTitle, blockItemSu
 
             </div>
 
-            <button type="button" className={`block-item--button ${blockItemButtonClass}`}>
+            <button
+                type="button"
+                className={`block-item--button ${blockItemButtonClass}`}
+                onClick={onButtonClick}>
                 {buttonText}
             </button>
 

@@ -1,27 +1,55 @@
 
 export const recipesMainItems = [
     {
-        imgDescription: "Een achtergrond-foto van iemand die koriander aan het snijden is",
-        imgClass: "block-item__img--recipes-all",
-        blockItemTitle: "Alle recepten",
-        blockItemSubtitle: "Bekijk alle heerlijke recepten voor inspiratie",
-        blockItemButtonClass: "recipes-main__button",
-        buttonText: "Ga naar alle recepten"
+        authenticationRequired: false,
+        image: {
+            imgDescription: "Een achtergrond-foto van een pokebowl-gerecht",
+            imgClass: "block-item__img--recipes-all",
+        },
+        content: {
+            blockItemTitle: "Alle recepten",
+            blockItemSubtitle: "Bekijk alle heerlijke recepten voor inspiratie",
+        },
+        button: {
+            blockItemButtonClass: "recipes-main__button",
+            buttonText: "Ga naar alle recepten",
+            navigateTo: "/recipes/all",
+        }
     },
     {
-        imgDescription: "Een achtergrond-foto van een bami-gerecht",
-        imgClass: "block-item__img--recipes-surprise",
-        blockItemTitle: "Verrassingsrecept",
-        blockItemSubtitle: "Bekijk hier je verrassingsrecept voor vandaag",
-        blockItemButtonClass: "recipes-main__button",
-        buttonText: "Ga naar verrassingsrecept"
+        authenticationRequired: true,
+        image: {
+            imgDescription: "Een achtergrond-foto van een hamburger",
+            imgClass: "block-item__img--recipes-surprise",
+            imgClassNotAuth: "block-item__img--recipes-surprise-not-auth",
+        },
+        content: {
+            blockItemTitle: "Verrassingsrecept",
+            blockItemSubtitle: "Bekijk hier je verrassingsrecept voor vandaag",
+        },
+        button: {
+            blockItemButtonClass: "recipes-main__button",
+            blockItemButtonClassNotAuth: "recipes-main__button--not-auth",
+            buttonText: "Ga naar verrassingsrecept",
+            navigateTo: "/recipes/surprise",
+        }
     },
     {
-        imgDescription: "Een achtergrond-foto van een pasta-gerecht",
-        imgClass: "block-item__img--recipes-add",
-        blockItemTitle: "Voeg toe",
-        blockItemSubtitle: "Mis je een recept? Voeg het hier toe!",
-        blockItemButtonClass: "recipes-main__button",
-        buttonText: "Ga naar toevoegen"
+        authenticationRequired: true,
+        image: {
+            imgDescription: "Een achtergrond-foto van een pasta-gerecht",
+            imgClass: "block-item__img--recipes-add",
+            imgClassNotAuth: "block-item__img--recipes-add-not-auth",
+        },
+        content: {
+            blockItemTitle: "Voeg toe",
+            blockItemSubtitle: "Mis je een recept? Voeg het hier toe!",
+        },
+        button: {
+            blockItemButtonClass: "recipes-main__button",
+            blockItemButtonClassNotAuth: "recipes-main__button--not-auth",
+            buttonText: "Ga naar toevoegen",
+            navigateTo: "/recipes/add",
+        }
     }
 ];

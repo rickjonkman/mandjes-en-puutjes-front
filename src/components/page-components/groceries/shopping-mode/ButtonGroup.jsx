@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import DefaultButton from "../../ui/buttons/DefaultButton.jsx";
-import {GroceriesContext} from "../../../context/GroceriesContext.jsx";
+import DefaultButton from "../../../ui/buttons/DefaultButton.jsx";
+import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 
 const ButtonGroup = () => {
 

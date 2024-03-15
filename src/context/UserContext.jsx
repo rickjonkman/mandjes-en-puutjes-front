@@ -26,14 +26,18 @@ const UserContextProvider = ({children}) => {
     useEffect(() => {
 
         const token = localStorage.getItem('token');
-        const decodedToken = jwtDecode(token);
-        const username = decodedToken.sub;
 
-        if (token && isTokenExpired(token)) {
-            void fetchUser(username);
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            const username = decodedToken.sub;
+
+            if (token && isTokenExpired(token)) {
+                void fetchUser(username);
+            }
+        } else {
+            console.log('No token found');
         }
 
-        void fetchUser(username);
     }, []);
 
     const fetchUser = async (username) => {

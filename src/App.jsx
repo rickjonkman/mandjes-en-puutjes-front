@@ -8,7 +8,6 @@ import DashboardPage from "./pages/authenticated/user-pages/DashboardPage.jsx";
 import PleaseRegister from "./pages/util-pages/PleaseRegister.jsx";
 import GroceriesMainPage from "./pages/authenticated/groceries-pages/GroceriesMainPage.jsx";
 import RecentListsPage from "./pages/authenticated/groceries-pages/RecentListsPage.jsx";
-import CurrentListPage from "./pages/authenticated/groceries-pages/CurrentListPage.jsx";
 import ShoppingModePage from "./pages/authenticated/groceries-pages/ShoppingModePage.jsx";
 import RecipesMainPage from "./pages/authenticated/recipes-pages/RecipesMainPage.jsx";
 import AllRecipesPage from "./pages/open/recipes-pages/AllRecipesPage.jsx";
@@ -33,27 +32,22 @@ function App() {
                        element={authenticated === true ? <DashboardPage/> : <PleaseRegister/>}/>
 
 
-                    <Route path="/groceries/main"
-                           element={authenticated === true ? <GroceriesMainPage/> : <PleaseRegister/>}/>
-                    <Route path="/groceries/recent-lists"
-                           element={authenticated === true ? <RecentListsPage/> : <PleaseRegister/>}/>
-                    <Route path="/groceries/current-list"
-                           element={authenticated === true ? <CurrentListPage/> : <PleaseRegister/>}/>
-                    <Route path="/groceries/shopping-mode"
-                           element={authenticated === true ? <ShoppingModePage/> : <PleaseRegister/>}/>
+                <Route path="/groceries/main"
+                       element={authenticated === true ? <GroceriesMainPage/> : <PleaseRegister/>}/>
+                <Route path="/groceries/recent-lists"
+                       element={authenticated === true ? <RecentListsPage/> : <PleaseRegister/>}/>
+                <Route path="/groceries/shopping-mode"
+                       element={authenticated === true ? <ShoppingModePage/> : <PleaseRegister/>}/>
 
                 <Route path="/recipes/main" element={<RecipesMainPage/>}/>
-
-                    <Route path="/recipes/all" element={<AllRecipesPage/>}/>
-
-
+                <Route path="/recipes/all" element={<AllRecipesPage/>}/>
                 <Route path="/recipes/saved"
                        element={authenticated === true ? <SavedRecipesPage/> : <PleaseRegister/>}/>
                 <Route path="/recipes/surprise"
                        element={authenticated === true ? <SurpriseRecipePage/> : <PleaseRegister/>}/>
 
 
-                    <Route path="/recipes/:recipeId" element={<RecipePage/>}/>
+                <Route path="/recipes/:recipeId" element={<RecipePage/>}/>
 
 
                 <Route path="/recipes/new" element={authenticated === true ? <RecipeNew/> : <PleaseRegister/>}/>

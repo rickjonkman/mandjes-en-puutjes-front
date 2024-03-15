@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import useFetchImage from "../../../hooks/useFetchImage.js";
+import useFetchImage from "../../../../hooks/useFetchImage.js";
 
 
 const RecipeThumbnail = ({ recipeName, tags, recipeImage, recipeImageDescription, buttonClickHandler }) => {

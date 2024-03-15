@@ -20,7 +20,7 @@ const GroceriesContextProvider = ({ children }) => {
         return console.log('GroceriesContextProvider mounted');
     }, [currentGroceries]);
 
-    const handleAddProduct = (productName, ) => {
+    const handleAddProduct = (productName) => {
         setGrocery({
             id: new Date().getTime(),
             name: productName,

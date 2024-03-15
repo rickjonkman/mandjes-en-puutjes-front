@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import ShoppingListItem from "./ShoppingListItem.jsx";
-import SubmitButton from "../../ui/buttons/SubmitButton.jsx";
+import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
 
 const ShoppingListForm = ({ currentGroceries, handleSubmitList }) => {
 

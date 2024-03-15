@@ -3,9 +3,8 @@
 
 .outer-container-class {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+  @include set-flexbox(column, space-between, center);
 }
 
 header.header-class {
@@ -16,6 +15,7 @@ header.header-class {
 main.main-class {
   width: 90%;
   max-width: 1400px;
+  @include set-flexbox(column, flex-start, stretch);
 }
 
 footer.footer-class {

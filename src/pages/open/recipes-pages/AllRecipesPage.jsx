@@ -5,10 +5,11 @@ import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.j
 import Main from "../../../components/structure/Main.jsx";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
 import {useEffect, useState} from "react";
-import RecipeThumbnail from "../../../components/page-components/recipes/RecipeThumbnail.jsx";
+import RecipeThumbnail from "../../../components/page-components/recipes/all-recipes/RecipeThumbnail.jsx";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import "/src/scss/scss-pages/all-recipes.scss";
+import Footer from "../../../components/structure/Footer.jsx";
 
 
 const AllRecipesPage = () => {
@@ -73,6 +74,8 @@ const AllRecipesPage = () => {
                 </div>
 
             </Main>
+
+            <Footer />
 
         </OuterContainer>
     );

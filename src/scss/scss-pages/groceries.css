@@ -373,4 +373,61 @@ body {
   cursor: pointer;
 }
 
+.recent-shopping-lists__container {
+  background-color: #CCF0F4;
+  border: 4px solid #82D8E2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.recent-shopping-lists__container .recent-shopping-list__class {
+  background-color: #F7FCFD;
+  border: 1px solid #82D8E2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  margin: 1rem auto;
+}
+.recent-shopping-lists__container .recent-shopping-list__title-container {
+  background-color: #82D8E2;
+  border: 1px solid #82D8E2;
+  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  padding: 0 1rem;
+  margin-bottom: auto;
+}
+.recent-shopping-lists__container li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #F7FCFD;
+  border-bottom: 1px solid #82D8E2;
+}
+.recent-shopping-lists__container li #recent-list-item__add-to-new-list {
+  padding: 0.4rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 /*# sourceMappingURL=groceries.css.map */
