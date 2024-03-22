@@ -77,7 +77,6 @@ const UserContextProvider = ({children}) => {
                 createdRecipes: response.data.createdRecipes,
                 savedRecipes: response.data.savedRecipes,
             })
-            console.log(response.data)
             localStorage.setItem('preferences', response.data.userPreferencesDTO);
         } catch (e) {
             console.error(e);
@@ -115,8 +114,6 @@ const UserContextProvider = ({children}) => {
                 setIsLoading(false);
             }
     }
-
-    console.log(userDetails)
 
     const userObject = {
         userDetails,
