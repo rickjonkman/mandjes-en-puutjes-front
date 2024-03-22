@@ -30,8 +30,31 @@
 
 .recipe__top-info--article {
   @include set-bg-color-thick-border($lime-100, $lime-60);
-  padding: 2rem;
+  @include set-flexbox(column, space-between, flex-start);
   border-radius: 16px;
+
+  .article__top-info {
+    @include set-flexbox(column, space-between, flex-start);
+    padding: 2rem;
+  }
+
+  .article__tags {
+    @include set-flexbox(row, space-between, center);
+    @include set-width(100%, 100%);
+    background-color: $lime-60;
+    height: 4rem;
+    gap: .5rem;
+    margin-top: auto;
+    padding: 0 3rem;
+
+    p {
+      background-color: $lime-60;
+      padding: .5rem;
+      color: $off-white;
+      text-transform: uppercase;
+    }
+
+  }
 }
 
 .recipe__image--class {

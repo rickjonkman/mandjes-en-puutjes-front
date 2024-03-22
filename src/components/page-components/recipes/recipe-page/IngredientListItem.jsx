@@ -2,7 +2,7 @@ import React from 'react';
 
 const IngredientListItem = ({ ingredientAmount, ingredientUnit, ingredientName }) => {
 
-
+    console.log(ingredientAmount, ingredientUnit, ingredientName)
 
     return (
         <li>

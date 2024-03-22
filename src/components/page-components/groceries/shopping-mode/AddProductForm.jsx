@@ -7,7 +7,17 @@ import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 const AddProductForm = () => {
 
     const [productName, setProductName] = useState('');
-    const { handleAddProduct } = useContext(GroceriesContext);
+    const { currentGroceries, setCurrentGroceries, grocery, setGrocery } = useContext(GroceriesContext);
+
+    const handleAddProduct = (productName) => {
+        setGrocery({
+            id: new Date().getTime(),
+            name: productName,
+            inStock: false,
+            notFound: false,
+        });
+        setCurrentGroceries([...currentGroceries, grocery]);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();

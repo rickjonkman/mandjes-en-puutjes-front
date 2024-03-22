@@ -1,21 +1,7 @@
-import {useEffect, useState} from "react";
-import useFetchImage from "../../../../hooks/useFetchImage.js";
+
 
 
 const RecipeThumbnail = ({ recipeName, tags, recipeImage, recipeImageDescription, buttonClickHandler }) => {
-
-    const url = `http://localhost:8080/api/v1/recipes/open/download-image/${recipeImage}`;
-    const [image, setImage] = useState(null);
-
-    const { fetchImage } = useFetchImage(url, setImage);
-
-    useEffect(() => {
-        if (recipeImage) {
-            void fetchImage();
-        } else { console.log('No image file name'); }
-
-        return console.log('Image fetched');
-    }, [recipeImage]);
 
 
     return (

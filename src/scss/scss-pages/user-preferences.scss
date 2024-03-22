@@ -1,0 +1,62 @@
+@import "src/scss/mixin-containers";
+@import "src/scss/utils";
+@import "src/scss/buttons";
+
+.user-preferences__container {
+  @include set-bg-color-thick-border($off-white, $tomato-60);
+  margin-top: 2rem;
+  overflow: hidden;
+
+  button {
+    @include set-button-default();
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+.user-preferences__content {
+  @include set-flexbox(row, space-around, center);
+  flex-wrap: wrap;
+}
+
+.user-preferences__form {
+  @include set-flexbox(column, space-around, center);
+  @include set-width(100%, 100%);
+  margin: 1rem;
+}
+
+.user-preferences__form-container {
+  @include set-bg-color-thick-border($off-white, $text-color);
+  @include set-flexbox(row, space-around, center);
+  @include set-width(100%, 100%);
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.show-preference__green {
+  @include set-flexbox(row, space-around, center);
+  @include set-bg-color-narrow-border($lime-80, $lime-60);
+  @include set-width(35%, 50%);
+  margin: 1rem;
+
+}
+
+.show-preference__red {
+  @include set-flexbox(row, space-around, center);
+  @include set-bg-color-narrow-border($tomato-90, $tomato-60);
+  @include set-width(35%, 50%);
+  margin: 1rem;
+}
+
+.user-preferences__button {
+  @include set-button-default();
+  padding: 1rem;
+  border: 1px solid $text-color;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $tomato-60;
+    color: $off-white;
+  }
+}

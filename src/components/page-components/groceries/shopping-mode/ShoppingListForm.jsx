@@ -1,10 +1,11 @@
-import React, {useContext} from 'react';
 import ShoppingListItem from "./ShoppingListItem.jsx";
 import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
+import {useContext} from "react";
+import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
 
-const ShoppingListForm = ({ currentGroceries, handleSubmitList }) => {
+const ShoppingListForm = ({handleSubmitList}) => {
 
-
+    const { currentGroceries } = useContext(GroceriesContext);
 
     return (
         <form className="shopping-list__form" onSubmit={handleSubmitList}>
@@ -15,7 +16,7 @@ const ShoppingListForm = ({ currentGroceries, handleSubmitList }) => {
                         return (
                             <ShoppingListItem
                                 key={index}
-                                grocery={grocery}>
+                                groceryItem={grocery}>
 
 
                             </ShoppingListItem>

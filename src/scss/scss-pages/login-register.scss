@@ -34,12 +34,116 @@
 
 .register-login__form--submit {
   @include set-register-login-submit-button($tomato-60, $tomato-60, $off-white);
+
   &:hover {
     @include set-register-login-submit-button-hover($tomato-100);
   }
 }
 
+.register-user__form--user-info {
+  width: 100%;
+}
+
 
 #button__go-back {
   @include set-go-back-button($tomato-60);
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &:hover {
+    border: 2px solid $tomato-60;
+  }
+}
+
+.register-user__form--preferences {
+  @include set-bg-color-narrow-border($tomato-100, $tomato-60);
+  @include set-flexbox(column, space-between, flex-start);
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+
+
+  form.user-preferences__form {
+    @include set-width(100%, 100%);
+    @include set-flexbox(column, center, flex-start);
+    @include set-bg-color-narrow-border($tomato-100, $tomato-60);
+    padding: 1rem;
+    margin: 6rem 0 4rem 0;
+
+    label {
+      @include set-flexbox(row, space-between, center);
+      @include set-input-label;
+      @include set-bg-color-narrow-border($off-white, $tomato-90);
+      @include set-width(100%, 100%);
+      padding: .2rem .6rem;
+
+
+      input {
+        width: 70%;
+        padding: .6rem;
+        border: 1px solid $tomato-60;
+        border-radius: 8px;
+        font-size: 1.2rem;
+      }
+    }
+
+
+  }
+}
+
+.login-register-form__container {
+  @include set-login-register-form-container($tomato-100, $tomato-60);
+  @include set-flexbox(column, space-between, flex-start);
+  padding: 1rem;
+
+  .login-register__form--preferences {
+    @include set-width(100%, 100%);
+    @include set-flexbox(column, center, flex-start);
+    @include set-bg-color-narrow-border($tomato-100, $tomato-60);
+    padding: .5rem;
+    margin: 6rem 0 4rem 0;
+
+    label {
+      @include set-flexbox(row, space-between, center);
+      @include set-input-label;
+      width: 100%;
+
+      input {
+        width: 70%;
+        padding: .2rem;
+        border: 1px solid $tomato-60;
+        border-radius: 8px;
+        font-size: 1.2rem;
+      }
+    }
+
+  }
+
+  .form-preferences__preference-container {
+    @include set-bg-color-narrow-border($off-white, $tomato-60);
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    margin-bottom: .2rem;
+    padding: .4rem;
+  }
+
+  h2 {
+    padding: 1rem;
+  }
+
+  .logout__buttons {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .button__logout, .button__register {
+    @include set-register-login-submit-button($tomato-60, $tomato-60, $off-white);
+    width: 45%;
+
+    &:hover {
+      @include set-register-login-submit-button-hover($tomato-100);
+    }
+  }
+
 }

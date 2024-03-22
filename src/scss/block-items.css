@@ -262,6 +262,10 @@ body {
   text-transform: uppercase;
   letter-spacing: -1px;
   color: #FCFBF8;
+  cursor: pointer;
+}
+.recipes-main__grid .block-item .block-item--button:hover {
+  background-color: #A6EDA1;
 }
 .recipes-main__grid .block-item--not-auth {
   display: flex;
@@ -305,6 +309,10 @@ body {
   text-transform: uppercase;
   letter-spacing: -1px;
   color: #FCFBF8;
+  cursor: pointer;
+}
+.recipes-main__grid .block-item--not-auth .block-item--button:hover {
+  background-color: #134D0F;
 }
 
 .groceries-main__grid {
@@ -355,6 +363,10 @@ body {
   text-transform: uppercase;
   letter-spacing: -1px;
   color: #FCFBF8;
+  cursor: pointer;
+}
+.groceries-main__grid .block-item .block-item--button:hover {
+  background-color: #CCF0F4;
 }
 
 .dashboard-main__grid {
@@ -405,6 +417,10 @@ body {
   text-transform: uppercase;
   letter-spacing: -1px;
   color: #FCFBF8;
+  cursor: pointer;
+}
+.dashboard-main__grid .block-item .block-item--button:hover {
+  background-color: #FE9A9A;
 }
 
 .block-item__img--recipes-all {
@@ -468,6 +484,14 @@ body {
 .block-item__img--recent-lists {
   background-color: #82D8E2;
   background-image: url("/src/assets/images/groceries--blue-img3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.block-item__img--dash-preferences-na {
+  background-color: #FE6867;
+  background-image: url("/src/assets/images/dashboard-tomato--img2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -12,25 +12,31 @@ import Main from "../../../components/structure/Main.jsx";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext.jsx";
 import {isTokenExpired} from "../../../helpers/isTokenExpired.js";
+import Footer from "../../../components/structure/Footer.jsx";
 
 
 const LoginPage = () => {
 
     const navigate = useNavigate();
+    const searchParams = new URLSearchParams(window.location.search);
+
     const { authenticate } = useContext(AuthContext);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const isUserRegistered = (searchParams) => {
+        if (searchParams.get('registration-success') === 'true') {
+            return (
+                <p className="login-register__form--success">Registratie gelukt! Je kunt nu inloggen.</p>
+            )
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         authenticate(username, password);
-
-        const token = localStorage.getItem('token');
-
-        if (token && isTokenExpired(token)) {
-            navigate('/general/dashboard');
-        }
     }
 
 
@@ -55,6 +61,7 @@ const LoginPage = () => {
                         />
 
                         <Form formClass="login-register__form" formSubmitHandler={(e) => handleSubmit(e)}>
+                            {isUserRegistered(searchParams)}
 
                             <label htmlFor="login__form--username"> Gebruikersnaam:
                                 <input
@@ -86,6 +93,8 @@ const LoginPage = () => {
                     </div>
 
                 </Main>
+
+                <Footer />
 
 
             </OuterContainer>

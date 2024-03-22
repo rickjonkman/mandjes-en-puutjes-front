@@ -7,7 +7,8 @@ export const groceriesMainItems = [
         blockItemTitle: "Winkelmodus",
         blockItemSubtitle: "Bekijk je lijst in winkelmodus zodra je boodschappen gaat doen",
         blockItemButtonClass: "groceries-main__button",
-        buttonText: "Ga naar alle recepten"
+        buttonText: "Ga naar winkelmodus",
+        onButtonClick: "/groceries/shopping-mode",
     },
     {
         imgDescription: "Een achtergrond-foto van een bami-gerecht",
@@ -15,7 +16,8 @@ export const groceriesMainItems = [
         blockItemTitle: "Beheer je nieuwe lijst",
         blockItemSubtitle: "Voeg producten toe aan je nieuwe boodschappenlijst",
         blockItemButtonClass: "groceries-main__button",
-        buttonText: "Ga naar huidige lijst"
+        buttonText: "Ga naar huidige lijst",
+        onButtonClick: "/groceries/current-list",
     },
     {
         imgDescription: "Een achtergrond-foto van een pasta-gerecht",
@@ -23,6 +25,7 @@ export const groceriesMainItems = [
         blockItemTitle: "Recente lijsten",
         blockItemSubtitle: "Bekijk je meest recente boodschappenlijsten om gemakkelijker toe te voegen aan je nieuwe lijst",
         blockItemButtonClass: "groceries-main__button",
-        buttonText: "Ga naar recente lijsten"
+        buttonText: "Ga naar recente lijsten",
+        onButtonClick: "/groceries/recent-lists",
     }
 ];

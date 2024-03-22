@@ -281,6 +281,10 @@ body {
   border: 2px solid #FFCDCC;
 }
 
+.register-user__form--user-info {
+  width: 100%;
+}
+
 #button__go-back {
   transform: rotate(3.142rad);
   background-color: #FE6867;
@@ -290,6 +294,153 @@ body {
   top: -1px;
   right: -1px;
   border-radius: 0 16px 0 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+#button__go-back:hover {
+  border: 2px solid #FE6867;
+}
+
+.register-user__form--preferences {
+  background-color: #FFCDCC;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.register-user__form--preferences form.user-preferences__form {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #FFCDCC;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 6rem 0 4rem 0;
+}
+.register-user__form--preferences form.user-preferences__form label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #FCFBF8;
+  border: 1px solid #FFB3B3;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.2rem 0.6rem;
+}
+.register-user__form--preferences form.user-preferences__form label input {
+  width: 70%;
+  padding: 0.6rem;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.login-register-form__container {
+  background-color: #FFCDCC;
+  border: 4px solid #FE6867;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 10rem;
+  padding: 3rem 0;
+  margin-top: 2rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.login-register-form__container .login-register__form--preferences {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #FFCDCC;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 6rem 0 4rem 0;
+}
+.login-register-form__container .login-register__form--preferences label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+}
+.login-register-form__container .login-register__form--preferences label input {
+  width: 70%;
+  padding: 0.2rem;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+.login-register-form__container .form-preferences__preference-container {
+  background-color: #FCFBF8;
+  border: 1px solid #FE6867;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem;
+}
+.login-register-form__container h2 {
+  padding: 1rem;
+}
+.login-register-form__container .logout__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+.login-register-form__container .button__logout, .login-register-form__container .button__register {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #FE6867;
+  border-radius: 8px;
+  background-color: #FE6867;
+  color: #FCFBF8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 45%;
+}
+.login-register-form__container .button__logout:hover, .login-register-form__container .button__register:hover {
+  border: 2px solid #FFCDCC;
 }
 
 /*# sourceMappingURL=login-register.css.map */

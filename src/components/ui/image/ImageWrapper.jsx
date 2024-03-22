@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageWrapper = ({ imageWrapperClass, imgSource, imgDescription, imgId }) => {
+const ImageWrapper = ({ imageWrapperClass, imgSource, imgDescription, imgId, handleOnClick }) => {
 
 
 
@@ -10,6 +10,7 @@ const ImageWrapper = ({ imageWrapperClass, imgSource, imgDescription, imgId }) =
                 src={imgSource}
                 alt={imgDescription}
                 id={imgId}
+                onClick={handleOnClick}
             />
         </figure>
     );

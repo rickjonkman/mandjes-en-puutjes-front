@@ -15,7 +15,7 @@ const RecipeInstructions = ({ recipeInstructions, sectionTitle }) => {
                         return (
                             <div key={instruction.step} className="recipe-instructions__instruction">
                                 <h1>{instruction.step}</h1>
-                                <p>{instruction.instructionText}</p>
+                                <p>{instruction.instruction}</p>
                             </div>
                         )
                     })

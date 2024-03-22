@@ -5,8 +5,8 @@ import HamburgerIcon from "/src/assets/icons/hamburger-green.svg";
 import Main from "../../../components/structure/Main.jsx";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
 import Footer from "../../../components/structure/Footer.jsx";
-import NewRecipeForm from "../../../components/page-components/recipes/new-recipe/NewRecipeForm.jsx";
 import "/src/scss/scss-pages/new-recipe.scss";
+import NewRecipeForm from "../../../components/page-components/recipes/new-recipe/NewRecipeForm.jsx";
 
 
 const RecipeNew = () => {
@@ -21,6 +21,7 @@ const RecipeNew = () => {
                 <PageTitle pageTitleClass="recipes-new__title" pageTitle="Nieuw recept" />
 
                 <NewRecipeForm />
+
             </Main>
 
             <Footer />

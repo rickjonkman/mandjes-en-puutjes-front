@@ -1,6 +1,5 @@
 
-
-export const allPages = [
+export const linksAuthenticated = [
     {
         id: 1,
         navLink: "/general/dashboard",
@@ -51,4 +50,10 @@ export const allPages = [
             }
         ],
     },
+    {
+        id: 4,
+        navLink: "/general/logout",
+        title: "Uitloggen",
+        subPages: [],
+    }
 ]

@@ -89,8 +89,9 @@
     }
   }
 
-  .list-item__container--buttons {
+  .current-groceries__list-item--button-group {
     display: flex;
+    margin-right: 2rem;
 
     button {
       @include set-icon-button;

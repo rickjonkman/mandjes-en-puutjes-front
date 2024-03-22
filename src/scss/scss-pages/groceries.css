@@ -344,10 +344,11 @@ body {
 .shopping-list__container-class ul li .list-item__container--checkbox input {
   margin-right: 0.5rem;
 }
-.shopping-list__container-class .list-item__container--buttons {
+.shopping-list__container-class .current-groceries__list-item--button-group {
   display: flex;
+  margin-right: 2rem;
 }
-.shopping-list__container-class .list-item__container--buttons button {
+.shopping-list__container-class .current-groceries__list-item--button-group button {
   padding: 0.4rem;
   border: none;
   cursor: pointer;

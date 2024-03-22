@@ -7,11 +7,12 @@ import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.j
 import HamIcon from "../../../assets/icons/hamburger-blue.svg";
 import {groceriesMainItems} from "../../../constants/groceriesMainItems.js";
 import Footer from "../../../components/structure/Footer.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 const GroceriesMainPage = () => {
 
-
+    const navigate = useNavigate();
 
     return (
         <>
@@ -37,6 +38,7 @@ const GroceriesMainPage = () => {
                                         blockItemSubtitle={item.blockItemSubtitle}
                                         blockItemButtonClass={item.blockItemButtonClass}
                                         buttonText={item.buttonText}
+                                        onButtonClick={() => navigate(item.onButtonClick)}
                                     />
                                 )
                             })

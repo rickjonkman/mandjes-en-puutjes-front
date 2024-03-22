@@ -6,45 +6,45 @@ import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.j
 import HamIcon from "../../../assets/icons/hamburger-green.svg";
 import Main from "../../../components/structure/Main.jsx";
 import RecipePageHeader from "../../../components/page-components/recipes/recipe-page/RecipePageHeader.jsx";
-import {recipeModelOld} from "../../../models/recipeModelOld.js";
-import axios from "axios";
-import {_imageEncode} from "../../../utilities/imageEncoder.js";
-import RecipePageMidSection from "../../../components/page-components/recipes/recipe-page/RecipePageMidSection.jsx";
 import "../../../scss/scss-pages/recipe-page.scss";
-import useFetchImage from "../../../hooks/useFetchImage.js";
 import Footer from "../../../components/structure/Footer.jsx";
+import axios from "axios";
+import RecipePageMidSection from "../../../components/page-components/recipes/recipe-page/RecipePageMidSection.jsx";
+import {recipeModel} from "../../../models/recipeModel.js";
 
 
 const RecipePage = () => {
 
-    const {recipeId} = useParams();
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, toggleIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [loadedRecipe, setLoadedRecipe] = useState(recipeModelOld || {});
+    const [singleRecipe, setSingleRecipe] = useState(recipeModel);
+
+    const {recipeId} = useParams();
+    const fetchRecipeURL = `http://localhost:8080/api/v1/recipes/get-recipe/${recipeId}`;
 
     useEffect(() => {
-        void fetchRecipe(recipeId);
-    }, [recipeId]);
+        void fetchSingleRecipe();
+    }, []);
 
-    const fetchRecipe = async (recipeId) => {
+    const fetchSingleRecipe = async () => {
 
-        const url = `http://localhost:8080/api/v1/recipes/get-recipe/${recipeId}`;
         setError(null);
-        setIsLoading(true);
+        toggleIsLoading(true);
 
         try {
-            const response = await axios.get(url);
-            setLoadedRecipe(response.data);
+            const response = await axios.get(fetchRecipeURL);
+            console.log(response);
+            setSingleRecipe(response.data);
         } catch (e) {
-            console.error(e);
+            console.error("Error fetching single recipe: ", e);
             setError(e);
         } finally {
-            setIsLoading(false);
+            toggleIsLoading(false);
         }
     }
 
 
-
+    console.log(singleRecipe)
 
     return (
         <OuterContainer>
@@ -55,16 +55,26 @@ const RecipePage = () => {
 
             <Main>
                 {isLoading ? <p>Loading...</p> : null}
-
                 {error ? <p>Er is iets misgegaan: {error}</p> : null}
+                {
+                    singleRecipe.recipeId > 0 &&
 
-                <RecipePageHeader recipe={loadedRecipe} />
+                    <>
+                        <RecipePageHeader
+                            recipeName={singleRecipe.recipeName}
+                            prepTime={singleRecipe.prepTime}
+                            creator={singleRecipe.createdByUser}
+                            tags={singleRecipe.tags}
+                            imageFile={singleRecipe.imageFile}
+                        />
 
-                <RecipePageMidSection recipe={loadedRecipe}/>
+                        <RecipePageMidSection recipe={singleRecipe}/>
+                    </>
+                }
 
             </Main>
 
-            <Footer />
+            <Footer/>
 
         </OuterContainer>
     );

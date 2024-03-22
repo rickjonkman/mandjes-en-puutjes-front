@@ -1,11 +1,16 @@
-import {allPages} from "../../../../constants/allPages.js";
-import {NavLink} from "react-router-dom";
+
 import CloseIcon from "/src/assets/icons/close-icon.svg";
 import "/src/scss/nav.scss";
+import HamburgerMenuLinks from "./HamburgerMenuLinks.jsx";
+import {useContext} from "react";
+import {AuthContext} from "../../../../context/AuthContext.jsx";
+import {linksAuthenticated} from "../../../../constants/linksAuthenticated.js";
+import {linksNotAuthenticated} from "../../../../constants/linksNotAuthenticated.js";
 
 
 const HamburgerMenu = ({ setIsMenuOpen, color }) => {
 
+    const { authenticated } = useContext(AuthContext);
 
     return (
         <div className={`hamburger__full-menu--${color}`}>
@@ -22,35 +27,7 @@ const HamburgerMenu = ({ setIsMenuOpen, color }) => {
 
             <div className="hamburger--menu-links">
 
-                <ul>
-
-                    {
-                        allPages.map((page) => {
-                            return (
-                                <li key={page.id}>
-                                    <NavLink to={page.navLink}><h2>{page.title}</h2></NavLink>
-
-                                    {
-                                        page.subPages.length > 0 &&
-                                        <ul>
-                                            {
-                                                page.subPages.map((subPage) => {
-                                                    return (
-                                                        <li key={subPage.id}>
-                                                            <NavLink to={subPage.navLink}><p>{subPage.title}</p></NavLink>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
-                                    }
-
-                                </li>
-                            )
-                        })
-                    }
-
-                </ul>
+                <HamburgerMenuLinks hamLinks={authenticated ? linksAuthenticated : linksNotAuthenticated} />
 
             </div>
         </div>

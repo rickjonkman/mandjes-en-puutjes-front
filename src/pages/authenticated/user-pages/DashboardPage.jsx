@@ -9,11 +9,17 @@ import Main from "../../../components/structure/Main.jsx";
 import {UserContext} from "../../../context/UserContext.jsx";
 import {useContext} from "react";
 import Footer from "../../../components/structure/Footer.jsx";
+import DashboardImageOne from "../../../assets/images/dashboard-tomato--img1.png";
+import {useNavigate} from "react-router-dom";
 
 
 const DashboardPage = () => {
 
+    const navigate = useNavigate();
+
     const { userDetails } = useContext(UserContext);
+
+    const {preferences} = userDetails;
 
     return (
         <OuterContainer>
@@ -28,6 +34,19 @@ const DashboardPage = () => {
 
                 <div className="dashboard-main__grid">
                     {
+                        preferences === null &&
+                        <BlockItem
+                            blockItemImg="block-item__img--dash-preferences-na"
+                            blockItemSubject="Belangrijk"
+                            blockItemTitle="Voorkeuren"
+                            blockItemSubtitle="Stel je voorkeuren in"
+                            blockItemButtonClass="dashboard-main__button"
+                            buttonText="Voorkeuren instellen"
+                            onButtonClick={() => navigate('/general/preferences')}
+                        />
+                    }
+
+                    {
                         dashboardItems.map((item, index) => {
                             return (
                                 <BlockItem
@@ -38,6 +57,7 @@ const DashboardPage = () => {
                                     blockItemSubtitle={item.blockItemSubtitle}
                                     blockItemButtonClass={item.blockItemButtonClass}
                                     buttonText={item.buttonText}
+                                    onButtonClick={() => navigate(item.onButtonClick)}
                                 />
                             )
                         })

@@ -1,136 +1,113 @@
-
-import {useFieldArray, useForm} from "react-hook-form";
+import React, {useContext, useState} from 'react';
 import FormBasicInfo from "./FormBasicInfo.jsx";
 import FormTags from "./FormTags.jsx";
 import FormIngredients from "./FormIngredients.jsx";
 import FormInstructions from "./FormInstructions.jsx";
-import {DevTool} from "@hookform/devtools";
-import {recipeModel} from "../../../../models/recipeModel.js";
+import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
+import {UserContext} from "../../../../context/UserContext.jsx";
 
 const NewRecipeForm = () => {
 
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-        control,
-    } = useForm({
-        defaultValues: recipeModel
+    const { userDetails } = useContext(UserContext);
+
+    const [formData, setFormData] = useState({
+        recipeName: '',
+        prepTime: {
+            hour: '',
+            min: '',
+        },
+        servings: 0,
+        tags: [],
+        ingredients: [],
+        instructions: [],
+        creator: userDetails.username,
     });
 
-    const {
-        fields: tagFields,
-        append: tagAppend,
-        remove: tagRemove
-    } = useFieldArray({
-        name: 'tags', control
-    })
+    const onChangeHandler = (e) => {
 
-    const handleAddTag = () => {
-        tagAppend({tagName: ''});
+        const { name, value } = e.target;
+
+        if (name.startsWith('prepTime')) {
+            const [category, subcategory] = name.split('__');
+
+            setFormData({
+                ...formData,
+                [category]: {
+                    ...formData[category],
+                    [subcategory]: parseInt(value, 10),
+                }
+            });
+        } else {
+            const parsedValue = isNaN(value) ? value : parseInt(value, 10);
+            setFormData({
+                ...formData,
+                [name]: parsedValue,
+            });
+        }
+
     }
 
-    const handleRemoveTag = (index) => {
-        tagRemove(index);
+    const addTagsToFormData = (newTags) => {
+        setFormData({
+            ...formData,
+            tags: newTags,
+        });
     }
 
-    const {
-        fields: supplyFields,
-        append: supplyAppend,
-        remove: supplyRemove,
-    } = useFieldArray({
-        name: 'supplies', control
-    });
-
-    const handleAddSupply = () => {
-        supplyAppend({supplyName: ''});
+    const addIngredientsToFormData = (newIngredients) => {
+        setFormData({
+            ...formData,
+            ingredients: newIngredients,
+        });
     }
 
-    const handleRemoveSupply = (index) => {
-        supplyRemove(index);
+    const addInstructionsToFormData = (newInstructions) => {
+        setFormData({
+            ...formData,
+            instructions: newInstructions,
+        });
     }
 
-    const {
-        fields: ingredientFields,
-        append: ingredientAppend,
-        remove: ingredientRemove,
-    } = useFieldArray({
-        name: 'ingredients', control
-    })
-
-    const handleAddIngredient = () => {
-        ingredientAppend({ingredientName: ''})
-    }
-
-    const handleRemoveIngredient = (index) => {
-        ingredientRemove(index);
-    }
-
-    const {
-        fields: instructionFields,
-        append: instructionAppend,
-        remove: instructionRemove,
-    } = useFieldArray({
-        name: 'instructions', control
-    })
-
-    const handleAddInstruction = () => {
-        instructionAppend({instruction: ''})
-    }
-
-    const handleRemoveInstruction = (index) => {
-        instructionRemove(index);
-    }
-
-    const handleFormSubmit = (data) => {
-        console.log(data);
-    }
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    };
 
     return (
-        <>
-            <form className="new-recipe__form" onSubmit={handleSubmit(handleFormSubmit)}>
+        <form className="new-recipe__form" onSubmit={handleFormSubmit}>
 
-                <FormBasicInfo
-                    register={register}
-                    control={control}
-                    errors={errors}
-                />
+            <FormBasicInfo
+                recipeNameValue={formData.recipeName}
+                prepTimeValue={formData.prepTime}
+                servingsValue={formData.servings}
+                handleOnChangeRecipeName={onChangeHandler}
+                handleOnChangePrepTimeHour={onChangeHandler}
+                handleOnChangePrepTimeMin={onChangeHandler}
+                handleOnChangeServings={onChangeHandler}
+            />
 
-                <FormTags
-                    register={register}
-                    control={control}
-                    errors={errors}
-                    tagFields={tagFields}
-                    supplyFields={supplyFields}
-                    onAddSupply={handleAddSupply}
-                    onRemoveSupply={handleRemoveSupply}
-                    onAddTag={handleAddTag}
-                    onRemoveTag={handleRemoveTag}
-                />
+            <FormTags
+                tags={formData.tags}
+                addTagsToFormData={addTagsToFormData}
+            />
 
-                <FormIngredients
-                    register={register}
-                    control={control}
-                    errors={errors}
-                    ingredientFields={ingredientFields}
-                    onAddIngredient={handleAddIngredient}
-                    onRemoveIngredient={handleRemoveIngredient}
-                />
+            <FormIngredients
+                ingredients={formData.ingredients}
+                addIngredientsToFormData={addIngredientsToFormData}
+            />
 
-                <FormInstructions
-                    register={register}
-                    control={control}
-                    errors={errors}
-                    instructionFields={instructionFields}
-                    onRemoveInstruction={handleRemoveInstruction}
-                    onAddInstruction={handleAddInstruction}
-                />
+            <FormInstructions
+                instructions={formData.instructions}
+                addInstructionsToFormData={addInstructionsToFormData}
+            />
 
-            </form>
+            <SubmitButton
+                buttonClass="new-recipe__form--submit-button"
+                buttonType="submit"
+                buttonText="Maak nieuw recept aan"
+            />
 
-            <DevTool control={control}/>
-        </>
-
+        </form>
     );
 };
 

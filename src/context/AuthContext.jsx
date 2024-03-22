@@ -2,11 +2,14 @@ import {createContext, useEffect, useState} from "react";
 import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import axios from "axios";
 import {extractUsernameFromToken} from "../helpers/extractUsernameFromToken.js";
+import {useNavigate} from "react-router-dom";
 
 
 export const AuthContext = createContext({ });
 
 const AuthContextProvider = ({children}) => {
+
+    const navigate = useNavigate();
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -29,15 +32,21 @@ const AuthContextProvider = ({children}) => {
 
     const authenticate = async (username, password) => {
 
+        setError(null);
+        setIsLoading(true);
+
         try {
             const response = await axios.post('http://localhost:8080/api/v1/users/authenticate', {
                 username: username,
                 password: password
             })
             localStorage.setItem('token', response.data.jwt);
+            navigate('/general/dashboard');
 
         } catch (e) {
             console.error(e);
+        } finally {
+            setIsLoading(false);
         }
 
     }
@@ -63,6 +72,11 @@ const AuthContextProvider = ({children}) => {
         } catch (e) {
             console.error(e);
             setError(e);
+            setAuthenticated({
+                isAuth: false,
+                user: null,
+                status: 'completed',
+            })
         } finally {
             setIsLoading(false);
         }
@@ -73,7 +87,7 @@ const AuthContextProvider = ({children}) => {
         setAuthenticated({
             isAuth: false,
             user: null,
-            status: 'pending',
+            status: 'completed',
         });
     }
 
@@ -91,7 +105,7 @@ const AuthContextProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={authObject}>
-            {children}
+            {authenticated.status === 'completed' ? children : <p>Loading...</p>}
         </AuthContext.Provider>
     );
 

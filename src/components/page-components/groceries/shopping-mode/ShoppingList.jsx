@@ -8,6 +8,8 @@ const ShoppingList = ({ shoppingListTitle }) => {
 
     const { currentGroceries } = useContext(GroceriesContext);
 
+    console.log(currentGroceries)
+
     const handleSubmitList = () => {
 
         try {
@@ -29,7 +31,7 @@ const ShoppingList = ({ shoppingListTitle }) => {
 
             <h2>{shoppingListTitle}</h2>
 
-            <ShoppingListForm currentGroceries={currentGroceries} handleSubmitList={handleSubmitList} />
+            <ShoppingListForm handleSubmitList={handleSubmitList} />
 
         </div>
     );

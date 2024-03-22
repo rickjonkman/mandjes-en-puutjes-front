@@ -1,56 +1,121 @@
 import IconButton from "../../../ui/buttons/IconButton.jsx";
 import AddIcon from "../../../../assets/icons/add-icon.svg";
 import MinusIcon from "../../../../assets/icons/minus-icon.svg";
+import {useState} from "react";
 
-const FormInstructions = ({
-                              register,
-                              instructionFields,
-                              onAddInstruction,
-                              onRemoveInstruction
-                          }) => {
+const FormInstructions = ({instructions, addInstructionsToFormData}) => {
 
+    const [instruction, setInstruction] = useState({
+        step: '',
+        description: '',
+    });
+
+    const handleChangeStep = (e) => {
+        setInstruction({
+            ...instruction,
+            step: e.target.value,
+        });
+    }
+
+    const handleChangeDescription = (e) => {
+        setInstruction({
+            ...instruction,
+            description: e.target.value,
+        });
+    }
+
+    const removeInstruction = (indexToRemove) => {
+        const newInstructions = instructions.filter((instruction, index) => index !== indexToRemove);
+        addInstructionsToFormData(newInstructions);
+    }
+
+    const handleKeyDown = (e) => {
+        const {key} = e;
+        const newInstruction = instruction.description.trim();
+
+        if ((key === 'Enter' || key === ',' || key === 'Tab') && newInstruction.length) {
+            e.preventDefault();
+            const newInstructions = [...instructions, instruction];
+            addInstructionsToFormData(newInstructions);
+            setInstruction({
+                step: '',
+                description: '',
+            });
+        } else if (key === 'Backspace' && !newInstruction.length && instructions.length) {
+            e.preventDefault();
+
+            const newInstructions = instructions.slice(0, -1);
+            addInstructionsToFormData(newInstructions);
+        }
+    }
 
     return (
         <div className="new-recipe__instructions-section">
 
-            <div className="new-recipe__instructions-section--instructions">
+            <div className="new-recipe--title-container">
                 <h2>Instructies</h2>
-                <p>Schrijf duidelijk op welke stappen er nodig zijn.</p>
+                <p>Voeg de stappen van je recept toe</p>
+            </div>
 
+            <div className="new-recipe__instructions-input-container">
                 {
-                    instructionFields.map((field, index) => (
-                        <section key={field.id} className="instruction-field--section">
+                    instructions.map((instruction, index) => (
+                        <div key={index} className="new-recipe__instruction">
 
-                            <label htmlFor="recipe__instruction--step">
-                                <input
-                                    type="number"
-                                    id="recipe__instruction--step"
-                                    {...register(`recipeInstructions.${index}.instructionStep`, {valueAsNumber: true})}
-                                />
-                            </label>
-
-                            <label htmlFor="recipe__instruction--text">
-                                <input
-                                    type="text"
-                                    id="recipe__instruction--text"
-                                    {...register(`recipeInstructions.${index}.instructionText`)}
-                                />
-                            </label>
+                            <span>{instruction.step}</span>
+                            <span>{instruction.description}</span>
 
                             <IconButton
                                 iconSrc={MinusIcon}
-                                buttonClickHandler={() => onRemoveInstruction(index)}
+                                iconId="delete-icon"
+                                iconDescription={`Verwijder stap ${instruction.step}`}
+                                buttonClickHandler={() => removeInstruction(index)}
                             />
 
-                            <IconButton
-                                iconSrc={AddIcon}
-                                buttonClickHandler={onAddInstruction}
-                            />
-
-                        </section>
+                        </div>
                     ))
                 }
+                <div className="new-recipe__instruction-input">
 
+                    <div className="new-recipe__instruction-input--step-container">
+                        <label htmlFor="instruction__step">
+                            <input
+                                type="number"
+                                placeholder="Stap"
+                                value={instruction.step}
+                                onChange={handleChangeStep}
+                                id="instruction__step"
+                            />
+                        </label>
+                    </div>
+
+                    <div className="new-recipe__instruction-input--description-container">
+                        <label htmlFor="instruction__description">
+                            <input
+                                type="text"
+                                placeholder="Beschrijving"
+                                value={instruction.description}
+                                onChange={handleChangeDescription}
+                                onKeyDown={handleKeyDown}
+                                id="instruction__description"
+                            />
+                        </label>
+                    </div>
+
+                    <IconButton
+                        iconSrc={AddIcon}
+                        iconId="add-icon"
+                        iconDescription="Voeg stap toe"
+                        buttonClickHandler={() => {
+                            const newInstructions = [...instructions, instruction];
+                            addInstructionsToFormData(newInstructions);
+                            setInstruction({
+                                step: '',
+                                description: '',
+                            });
+                        }}
+                    />
+                </div>
             </div>
 
         </div>

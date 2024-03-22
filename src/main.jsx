@@ -9,14 +9,14 @@ import ThemeColorContextProvider from "./context/ThemeColorContext.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <AuthContextProvider>
-            <UserContextProvider>
-                <Router>
+        <Router>
+            <AuthContextProvider>
+                <UserContextProvider>
                     <ThemeColorContextProvider>
                         <App/>
                     </ThemeColorContextProvider>
-                </Router>
-            </UserContextProvider>
-        </AuthContextProvider>
+                </UserContextProvider>
+            </AuthContextProvider>
+        </Router>
     </React.StrictMode>,
 )

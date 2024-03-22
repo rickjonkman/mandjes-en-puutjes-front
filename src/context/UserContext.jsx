@@ -1,12 +1,14 @@
 import {createContext, useEffect, useState} from "react";
 import axios from "axios";
-import {isTokenExpired} from "../helpers/isTokenExpired.js";
 import {jwtDecode} from "jwt-decode";
+import {isTokenExpired} from "../helpers/isTokenExpired.js";
 
 
 export const UserContext = createContext({});
 
 const UserContextProvider = ({children}) => {
+
+    const token = localStorage.getItem('token');
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -14,34 +16,48 @@ const UserContextProvider = ({children}) => {
         username: '',
         firstname: '',
         preferences: {
-            showMeat: true,
-            showFish: true,
-            showVegetarian: true,
-            showVegan: true,
+            showMeat: false,
+            showFish: false,
+            showVega: false,
+            showVegan: false,
+
         },
         createdRecipes: [],
         savedRecipes: [],
     });
 
+    const [preferencesNeedUpdate, setPreferencesNeedUpdate] = useState(false);
+
     useEffect(() => {
 
-        const token = localStorage.getItem('token');
-
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            const username = decodedToken.sub;
-
-            if (token && isTokenExpired(token)) {
-                void fetchUser(username);
-            }
-        } else {
-            console.log('No token found');
+        if (token && !isTokenExpired(token)) {
+            console.log('Token is expired');
+            setUserDetails({
+                username: '',
+                firstname: '',
+                preferences: null,
+                createdRecipes: [],
+                savedRecipes: [],
+            })
+        } else if (token && isTokenExpired(token)) {
+            const username = jwtDecode(token).sub;
+            void fetchUser(username);
         }
 
     }, []);
 
+    useEffect(() => {
+        if (preferencesNeedUpdate) {
+            void handleUpdatePreferences(userDetails.preferences);
+            setPreferencesNeedUpdate(false);
+        }
+    }, [preferencesNeedUpdate, userDetails.preferences]);
+
+
+
     const fetchUser = async (username) => {
 
+        setError(null);
         setIsLoading(true);
 
         try {
@@ -61,6 +77,8 @@ const UserContextProvider = ({children}) => {
                 createdRecipes: response.data.createdRecipes,
                 savedRecipes: response.data.savedRecipes,
             })
+            console.log(response.data)
+            localStorage.setItem('preferences', response.data.userPreferencesDTO);
         } catch (e) {
             console.error(e);
             setError(e);
@@ -69,12 +87,45 @@ const UserContextProvider = ({children}) => {
         }
     }
 
+    const handleUpdatePreferences = async (preferences) => {
 
+            setError(null);
+            setIsLoading(true);
+
+            try {
+                const response = await axios.put(`http://localhost:8080/api/v1/user/update-preferences?username=${userDetails.username}`,
+                    {
+                        preferences: preferences
+                    },
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                        }
+                    }
+                );
+                setUserDetails({
+                    ...userDetails,
+                    preferences: response.data
+                })
+            } catch (e) {
+                console.error(e);
+                setError(e);
+            } finally {
+                setIsLoading(false);
+            }
+    }
+
+    console.log(userDetails)
 
     const userObject = {
         userDetails,
+        setUserDetails,
+        preferences: userDetails.preferences,
         error,
         isLoading,
+        handleUpdatePreferences,
+        preferencesNeedUpdate,
     }
 
     return (

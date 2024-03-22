@@ -5,7 +5,8 @@ export const dashboardItems = [
         blockItemTitle: "Boodschappenlijst",
         blockItemSubtitle: "Je hebt 7 producten op je nieuwe lijst",
         blockItemButtonClass: "dashboard-main__button",
-        buttonText: "Ga naar je boodschappenlijst"
+        buttonText: "Ga naar je boodschappenlijst",
+        onButtonClick: "/groceries/shopping-mode"
     },
     {
         imgDescription: "Een achtergrond-foto van iemand die koriander aan het snijden is",
@@ -13,7 +14,8 @@ export const dashboardItems = [
         blockItemTitle: "Voorkeuren",
         blockItemSubtitle: "Bekijk en wijzig je huidige voorkeuren",
         blockItemButtonClass: "dashboard-main__button",
-        buttonText: "Ga naar je voorkeuren"
+        buttonText: "Ga naar je voorkeuren",
+        onButtonClick: "/general/preferences"
     },
     {
         imgDescription: "Een achtergrond-foto van iemand die koriander aan het snijden is",
@@ -21,7 +23,8 @@ export const dashboardItems = [
         blockItemTitle: "Boodschappen",
         blockItemSubtitle: "Je hebt deze week 2 keer boodschappen gedaan",
         blockItemButtonClass: "dashboard-main__button",
-        buttonText: "Bekijk je laatste lijsten"
+        buttonText: "Bekijk je laatste lijsten",
+        onButtonClick: "/groceries/recent-lists"
     },
     {
         imgDescription: "Een achtergrond-foto van iemand die koriander aan het snijden is",
@@ -29,6 +32,7 @@ export const dashboardItems = [
         blockItemTitle: "Verrassingsrecept",
         blockItemSubtitle: "Je verrassingsrecept van vandaag",
         blockItemButtonClass: "dashboard-main__button",
-        buttonText: "Bekijk je verrassing"
+        buttonText: "Bekijk je verrassing",
+        onButtonClick: "/recipes/surprise"
     }
 ]

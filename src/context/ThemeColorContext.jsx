@@ -12,12 +12,19 @@ const ThemeColorContextProvider = ({children}) => {
         setColorTheme(currentPath);
     }, [currentPath]);
 
+
+
     function setColorTheme(pathname) {
 
         let colorString = '';
 
         switch (pathname) {
+            case '/':
             case '/general/dashboard':
+            case '/general/login':
+            case '/general/register':
+            case '/general/logout':
+            case '/general/preferences':
                 colorString = 'pink';
                 break;
             case '/groceries/main':
@@ -37,6 +44,7 @@ const ThemeColorContextProvider = ({children}) => {
 
         setColor(colorString);
     }
+
 
 
     return (

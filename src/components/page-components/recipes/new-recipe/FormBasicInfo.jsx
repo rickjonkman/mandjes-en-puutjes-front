@@ -1,30 +1,38 @@
-import React from 'react';
 
 
-const FormBasicInfo = ({register, errors}) => {
+
+const FormBasicInfo = ({
+                           recipeNameValue,
+                           prepTimeValue,
+                           handleOnChangePrepTimeHour,
+                           handleOnChangePrepTimeMin,
+                           handleOnChangeRecipeName,
+                           servingsValue,
+                           handleOnChangeServings
+                       }) => {
 
 
     return (
         <div className="new-recipe__basic-info">
-            <h2>Algemene informatie</h2>
 
-            <label htmlFor="new-recipe__name"><span>Naam van het recept:</span>
+            <div className="new-recipe--title-container">
+            <h2>Algemene informatie</h2>
+            </div>
+
+            <label htmlFor="new-recipe__name">
+                <span>Naam van het recept:</span>
                 <input
                     type="text"
-                    placeholder="Recipe Name"
+                    placeholder="Naam..."
                     id="new-recipe__name"
-                    {...(register("recipeName",
-                        {
-                            required: 'Naam is verplicht',
-                            minLength: 3
-                        }))}
+                    name="recipeName"
+                    value={recipeNameValue}
+                    onChange={handleOnChangeRecipeName}
                 />
-                {errors.recipeName && <p>{errors.recipeName.message}</p>}
             </label>
 
             <div className="new-recipe__basic-info--prep-time">
                 <h3>Bereidingstijd</h3>
-
                 <div className="prep-time__input-fields">
                     <label htmlFor="prep-time__hour">
                         <span>Uur</span>
@@ -32,14 +40,10 @@ const FormBasicInfo = ({register, errors}) => {
                             type="number"
                             placeholder="00"
                             id="prep-time__hour"
-                            {...(register("hour",
-                                {
-                                    required: true,
-                                    min: 1,
-                                    max: 12,
-                                }))}
+                            name="prepTime__hour"
+                            value={prepTimeValue.hour}
+                            onChange={handleOnChangePrepTimeHour}
                         />
-                        {errors.hour && <p>{errors.hour.message}</p>}
                     </label>
 
                     <label htmlFor="prep-time__min">
@@ -48,32 +52,26 @@ const FormBasicInfo = ({register, errors}) => {
                             type="number"
                             placeholder="00"
                             id="prep-time__min"
-                            {...(register("min",
-                                {
-                                    required: true,
-                                    min: 1,
-                                    max: 59,
-                                }))}
+                            name="prepTime__min"
+                            value={prepTimeValue.min}
+                            onChange={handleOnChangePrepTimeMin}
                         />
-                        {errors.min && <p>{errors.min.message}</p>}
                     </label>
                 </div>
-
             </div>
 
             <div className="new-recipe__basic-info--servings">
-                <label htmlFor="new-recipe__servings"><span>Porties:</span>
+                <h3>Porties</h3>
+                <label htmlFor="new-recipe__servings">
+                    <span>Aantal personen:</span>
                     <input
                         type="number"
-                        placeholder="Servings"
+                        placeholder="Porties"
                         id="new-recipe__servings"
-                        {...(register("servings", {
-                            required: true,
-                            min: 1,
-                            max: 12
-                        }))}
+                        name="servings"
+                        value={servingsValue}
+                        onChange={handleOnChangeServings}
                     />
-                    {errors.servings && <p>{errors.servings.message}</p>}
                 </label>
             </div>
 

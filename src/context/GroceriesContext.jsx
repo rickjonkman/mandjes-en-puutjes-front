@@ -9,9 +9,10 @@ const GroceriesContextProvider = ({ children }) => {
     const groceriesFromLocalStorage = JSON.parse(localStorage.getItem('currentGroceries'));
     const [currentGroceries, setCurrentGroceries] = useState(groceriesFromLocalStorage || []);
     const [grocery, setGrocery] = useState({
-        id: '',
+        id: 0,
         name: '',
         inStock: false,
+        notFound: false,
     });
 
     useEffect(() => {
@@ -19,20 +20,6 @@ const GroceriesContextProvider = ({ children }) => {
 
         return console.log('GroceriesContextProvider mounted');
     }, [currentGroceries]);
-
-    const handleAddProduct = (productName) => {
-        setGrocery({
-            id: new Date().getTime(),
-            name: productName,
-            inStock: false,
-        });
-        setCurrentGroceries([...currentGroceries, grocery]);
-    }
-
-    // const handleRemoveProduct = (id) => {
-    //     const newList = currentGroceries.filter((grocery) => grocery.id !== id);
-    //     setCurrentGroceries(newList);
-    // }
 
     const handleClearList = () => {
         setCurrentGroceries([]);
@@ -54,7 +41,8 @@ const GroceriesContextProvider = ({ children }) => {
     const groceriesObject = {
         currentGroceries,
         setCurrentGroceries,
-        handleAddProduct,
+        grocery,
+        setGrocery,
         handleClearList,
         handleToggleGrocery,
     }

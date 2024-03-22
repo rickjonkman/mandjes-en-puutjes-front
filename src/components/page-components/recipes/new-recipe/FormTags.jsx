@@ -1,84 +1,72 @@
 import IconButton from "../../../ui/buttons/IconButton.jsx";
-import AddIcon from "../../../../assets/icons/add-icon.svg";
-import MinusIcon from "../../../../assets/icons/minus-icon.svg";
+import CloseIcon from "../../../../assets/icons/close-icon.svg";
+import {useState} from "react";
 
-const FormTags = ({
-                      register,
-                      tagFields,
-                      supplyFields,
-                      onAddTag,
-                      onRemoveTag,
-                      onRemoveSupply,
-                      onAddSupply,
-                  }) => {
+const FormTags = ({ tags, addTagsToFormData }) => {
 
+    const [tag, setTag] = useState('');
+
+    const removeTag = (indexToRemove) => {
+        const newTags = tags.filter((tag, index) => index !== indexToRemove);
+        addTagsToFormData(newTags);
+    }
+
+    const handleChange = (e) => {
+        setTag(e.target.value);
+    }
+
+    const handleKeyDown = (e) => {
+        const {key} = e;
+        const newTag = tag.trim();
+
+        if ((key === 'Enter' || key === ',' || key === 'Tab') && newTag.length && !tags.includes(newTag)) {
+            e.preventDefault();
+            const newTags = [...tags, newTag];
+            addTagsToFormData(newTags);
+            setTag('');
+        } else if (key === 'Backspace' && !newTag.length && tags.length) {
+            e.preventDefault();
+
+            const newTags = tags.slice(0, -1);
+            addTagsToFormData(newTags);
+        }
+    }
 
     return (
-        <div className="new-recipe__tags-section">
-
-            <div className="new-recipe__tags-section--tags">
-                <div className="tags-section--title">
+        <>
+            <div className="new-recipe__tags-section">
+                <div className="new-recipe--title-container">
                     <h2>Tags</h2>
-                    <p>Drie treffende kenmerken van het recept.</p>
+                    <p>Voeg drie tags toe die jouw recept omschrijven</p>
                 </div>
 
-                {
-                    tagFields.map((field, index) => (
-                        <section key={field.id} className="tag-field--section">
-                            <label htmlFor="recipe-tag"> <span>Tags</span>
-                                <input
-                                    id="recipe-tag"
-                                    {...register(`tags.${index}.tagName`)}
-                                />
-                            </label>
 
-                            <div className="tag-field--section--buttons">
+                <div className="new-recipe__tags-input">
+                    {
+                        tags.map((tag, index) => (
+                            <span key={index} className="new-recipe__tag">
+                                {tag}
                                 <IconButton
-                                    iconSrc={MinusIcon}
-                                    buttonClickHandler={() => onRemoveTag(index)}
+                                    iconSrc={CloseIcon}
+                                    iconId="delete-icon"
+                                    iconDescription={`Verwijder tag ${tag}`}
+                                    buttonClickHandler={() => removeTag(index)}
                                 />
-
-                                <IconButton
-                                    iconSrc={AddIcon}
-                                    buttonClickHandler={onAddTag}
-                                />
-                            </div>
-                        </section>
-                    ))
-                }
+                            </span>
+                        ))
+                    }
+                    <input
+                        className="new-recipe__tag-input"
+                        value={tag}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Voeg een tag toe en druk op enter"
+                    />
+                </div>
 
             </div>
+        </>
 
-            <div className="new-recipe__tags-section--supplies">
-                <h2>Benodigdheden</h2>
-                <p>Welke materialen heb je nodig.</p>
-
-                {
-                    supplyFields.map((field, index) => (
-                        <section key={field.id} className="supplies-field--section">
-                            <label key={field.id} htmlFor="recipe-supply"> <span>Benodigdheden</span>
-                                <input
-                                    id="recipe-supply"
-                                    {...register(`supplies.${index}.name`)}
-                                />
-                            </label>
-
-                            <IconButton
-                                iconSrc={MinusIcon}
-                                buttonClickHandler={() => onRemoveSupply(index)}
-                            />
-
-                            <IconButton
-                                iconSrc={AddIcon}
-                                buttonClickHandler={() => onAddSupply({tagName: ''})}
-                            />
-                        </section>
-                    ))
-                }
-
-            </div>
-
-        </div>
     );
 };
 

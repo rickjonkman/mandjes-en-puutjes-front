@@ -14,7 +14,6 @@ import {useNavigate} from "react-router-dom";
 
 const RecipesMainPage = () => {
 
-    const { authenticated } = useContext(AuthContext);
     const navigate = useNavigate();
 
     return (

@@ -16,10 +16,13 @@ import SavedRecipesPage from "./pages/authenticated/recipes-pages/SavedRecipesPa
 import SurpriseRecipePage from "./pages/authenticated/recipes-pages/SurpriseRecipePage.jsx";
 import RecipeNew from "./pages/authenticated/recipes-pages/RecipeNew.jsx";
 import {AuthContext} from "./context/AuthContext.jsx";
+import LoadingPage from "./pages/util-pages/LoadingPage.jsx";
+import LogOutPage from "./pages/authenticated/user-pages/LogOutPage.jsx";
+import PreferencesPage from "./pages/authenticated/user-pages/PreferencesPage.jsx";
 
 function App() {
 
-    const {authenticated} = useContext(AuthContext);
+    const {authenticated, isLoading} = useContext(AuthContext);
 
     return (
         <>
@@ -29,7 +32,8 @@ function App() {
                 <Route path="/general/login" element={<LoginPage/>}/>
                 <Route path="/general/register" element={<RegisterPage/>}/>
                 <Route path="/general/dashboard"
-                       element={authenticated === true ? <DashboardPage/> : <PleaseRegister/>}/>
+                       element={isLoading ? <LoadingPage /> : authenticated === true ? <DashboardPage /> : <PleaseRegister />}/>
+                <Route path="/general/preferences" element={authenticated === true ? <PreferencesPage /> : <PleaseRegister />}/>
 
 
                 <Route path="/groceries/main"
@@ -45,12 +49,10 @@ function App() {
                        element={authenticated === true ? <SavedRecipesPage/> : <PleaseRegister/>}/>
                 <Route path="/recipes/surprise"
                        element={authenticated === true ? <SurpriseRecipePage/> : <PleaseRegister/>}/>
-
-
-                <Route path="/recipes/:recipeId" element={<RecipePage/>}/>
-
-
+                <Route path="/recipe/:recipeId" element={<RecipePage/>}/>
                 <Route path="/recipes/new" element={authenticated === true ? <RecipeNew/> : <PleaseRegister/>}/>
+
+                <Route path="/general/logout" element={authenticated === true ? <LogOutPage /> : <PleaseRegister />}/>
 
             </Routes>
         </>

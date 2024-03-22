@@ -95,3 +95,10 @@ $register-page-title--img: "/src/assets/images/market-sign.png";
     @include set-page-title-content($tomato-60);
   }
 }
+
+.preferences__title {
+    @include set-page-title($login-page-title--img, $tomato-60, $tomato-60);
+    .page-title__content {
+        @include set-page-title-content($tomato-60);
+    }
+}

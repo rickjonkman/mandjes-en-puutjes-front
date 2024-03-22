@@ -5,7 +5,7 @@ import RecipeInstructions from "./RecipeInstructions.jsx";
 
 const RecipePageMidSection = ({ recipe }) => {
 
-    const { servings, ingredientsMeasured, instructionsDTO, savedByUsers } = recipe;
+    const { servings, ingredients, instructions, savedByUsers } = recipe;
 
     return (
         <>
@@ -16,7 +16,7 @@ const RecipePageMidSection = ({ recipe }) => {
                     <RecipeIngredients
                         sectionTitle="Ingredienten"
                         servings={servings}
-                        ingredients={ingredientsMeasured}
+                        ingredients={ingredients}
                     />
 
                 </div>
@@ -27,7 +27,7 @@ const RecipePageMidSection = ({ recipe }) => {
 
                     <RecipeInstructions
                         sectionTitle="Instructies"
-                        recipeInstructions={instructionsDTO}
+                        recipeInstructions={instructions}
                     />
 
                 </div>
