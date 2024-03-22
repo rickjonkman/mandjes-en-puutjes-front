@@ -6,8 +6,15 @@ export const GroceriesContext = createContext({ });
 
 const GroceriesContextProvider = ({ children }) => {
 
-    const groceriesFromLocalStorage = JSON.parse(localStorage.getItem('currentGroceries'));
-    const [currentGroceries, setCurrentGroceries] = useState(groceriesFromLocalStorage || []);
+    const groceriesFromLocalStorage = localStorage.getItem('currentGroceries');
+    const initialItem = [{
+        id: 100,
+        name: 'Test item',
+        inStock: false,
+        checked: false,
+    }]
+
+    const [currentGroceries, setCurrentGroceries] = useState(JSON.parse(groceriesFromLocalStorage) || initialItem);
     const [grocery, setGrocery] = useState({
         id: 0,
         name: '',
