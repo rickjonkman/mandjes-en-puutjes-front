@@ -3,15 +3,17 @@ import Header from "../../../components/structure/Header.jsx";
 import NavBarMain from "../../../components/ui/navigation/nav--main/NavBarMain.jsx";
 import HamIcon from "../../../assets/icons/hamburger-blue.svg";
 import Main from "../../../components/structure/Main.jsx";
-import "/src/scss/scss-pages/groceries.scss";
-import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
-import GroceriesMenu from "../../../components/page-components/groceries/shopping-mode/GroceriesMenu.jsx";
-import ShoppingList from "../../../components/page-components/groceries/shopping-mode/ShoppingList.jsx";
-import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
+import "/src/scss/scss-pages/groceries-shoppingmode.scss";
+import GroceriesContextProvider from "../../../context/ShoppingModeContext.jsx";
 import Footer from "../../../components/structure/Footer.jsx";
+import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
+import ShoppingModeMenu from "../../../components/page-components/groceries/shopping-mode/ShoppingModeMenu.jsx";
+import ShoppingModeContextProvider from "../../../context/ShoppingModeContext.jsx";
+import ShoppingList from "../../../components/page-components/groceries/shopping-mode/ShoppingList.jsx";
 
 
 const ShoppingModePage = () => {
+
 
 
     return (
@@ -24,21 +26,27 @@ const ShoppingModePage = () => {
 
                 <Main>
 
+                    <PageTitle
+                        pageTitleClass="groceries-shopping-mode__title"
+                        pageTitle="Winkelmodus"
+                    />
 
-                    <PageTitle pageTitleClass='groceries-shopping-mode__title' pageTitle="Winkelmodus"/>
-
-                    <GroceriesContextProvider>
-                        <GroceriesMenu/>
+                    <ShoppingModeContextProvider>
+                        <div className="groceries-shopping-mode__container">
 
 
-                        <ShoppingList shoppingListTitle="Huidige lijst"/>
-                    </GroceriesContextProvider>
+                            <ShoppingModeMenu/>
+
+                            <ShoppingList />
+
+                        </div>
+                    </ShoppingModeContextProvider>
 
                 </Main>
 
             </OuterContainer>
 
-            <Footer />
+            <Footer/>
         </GroceriesContextProvider>
     )
         ;

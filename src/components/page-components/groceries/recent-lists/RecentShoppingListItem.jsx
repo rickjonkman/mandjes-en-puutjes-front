@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 import IconButton from "../../../ui/buttons/IconButton.jsx";
-import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
+import {ShoppingModeContext} from "../../../../context/ShoppingModeContext.jsx";
 import AddIcon from "/src/assets/icons/add-icon.svg";
 
 const RecentShoppingListItem = ({ grocery }) => {
 
-    const { handleAddProduct } = useContext(GroceriesContext);
+    const { handleAddProduct } = useContext(ShoppingModeContext);
 
 
 

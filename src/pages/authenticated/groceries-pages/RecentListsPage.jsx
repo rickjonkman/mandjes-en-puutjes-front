@@ -5,7 +5,7 @@ import HamburgerIcon from "/src/assets/icons/hamburger-blue.svg";
 import Main from "../../../components/structure/Main.jsx";
 import PageTitle from "../../../components/page-components/page-title/PageTitle.jsx";
 import Footer from "../../../components/structure/Footer.jsx";
-import GroceriesContextProvider from "../../../context/GroceriesContext.jsx";
+import GroceriesContextProvider from "../../../context/ShoppingModeContext.jsx";
 import RecentListsContainer from "../../../components/page-components/groceries/recent-lists/RecentListsContainer.jsx";
 
 

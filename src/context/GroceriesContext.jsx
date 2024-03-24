@@ -1,11 +1,12 @@
-import {createContext, useEffect, useState} from "react";
+import {createContext, useContext, useEffect, useState} from "react";
 import axios from "axios";
+import {getUsername} from "../helpers/getUsername.js";
 
-
-export const GroceriesContext = createContext({ });
+export const GroceriesContext = createContext({});
 
 const GroceriesContextProvider = ({ children }) => {
 
+<<<<<<< HEAD
     const groceriesFromLocalStorage = localStorage.getItem('currentGroceries');
     const initialItem = [{
         id: 100,
@@ -41,24 +42,26 @@ const GroceriesContextProvider = ({ children }) => {
         });
         setCurrentGroceries(newList);
     }
+=======
+>>>>>>> shopping-mode-rebuild
 
 
 
 
-    const groceriesObject = {
-        currentGroceries,
-        setCurrentGroceries,
-        grocery,
-        setGrocery,
-        handleClearList,
-        handleToggleGrocery,
+    console.log(recentLists)
+
+    const GroceriesObject = {
+        recentLists,
+        setRecentLists,
+        error,
+        isLoading,
     }
 
     return (
-        <GroceriesContext.Provider value={groceriesObject}>
+        <GroceriesContext.Provider value={GroceriesObject}>
             {children}
         </GroceriesContext.Provider>
-    )
+    );
 }
 
 export default GroceriesContextProvider;

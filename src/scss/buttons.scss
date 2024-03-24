@@ -47,7 +47,17 @@
 
 @mixin set-add-grocery-button($bg-color, $color, $border-color) {
   @include set-register-login-submit-button($border-color, $bg-color, $color);
-  margin-top: 1rem;
   font-size: 1rem;
-  padding: .5rem;
+  padding: .4rem;
+}
+
+@mixin set-shopping-list-item-button {
+  @include set-button-default;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: .2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
 }

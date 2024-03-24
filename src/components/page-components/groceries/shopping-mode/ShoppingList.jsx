@@ -1,39 +1,65 @@
-
-import ShoppingListForm from "./ShoppingListForm.jsx";
-import {useContext} from "react";
-import {GroceriesContext} from "../../../../context/GroceriesContext.jsx";
+import {useContext, useState} from 'react';
+import {ShoppingModeContext} from "../../../../context/ShoppingModeContext.jsx";
+import SubmitButton from "../../../ui/buttons/SubmitButton.jsx";
 import axios from "axios";
+import {getUsername} from "../../../../helpers/getUsername.js";
+import ShoppingListItem from "./ShoppingListItem.jsx";
 
-const ShoppingList = ({ shoppingListTitle }) => {
+const ShoppingList = () => {
 
-    const { currentGroceries } = useContext(GroceriesContext);
+    const {currentList, listTransferObject} = useContext(ShoppingModeContext);
 
-    console.log(currentGroceries)
 
-    const handleSubmitList = () => {
+
+    const handleSendList = (e) => {
+        e.preventDefault();
 
         try {
-            const response = axios.post('http://localhost:8080/groceries', {
-                currentGroceries
-            }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            console.log(response.data);
+            const response = axios.post(`http://localhost:8080/api/v1/shopping-lists/add-new?username=${getUsername()}`,
+                {
+                    creationDate: listTransferObject.creationDate,
+                    products: listTransferObject.products,
+                    username: listTransferObject.username,
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("token")} `
+                    }
+                });
+            console.log(response)
         } catch (e) {
             console.error(e);
         }
+
     }
 
     return (
-        <div className="shopping-list__container-class">
+        <section className="groceries-shopping-mode__content">
 
-            <h2>{shoppingListTitle}</h2>
+            <form className="shopping-mode__content--form" onSubmit={(e) => handleSendList(e)}>
 
-            <ShoppingListForm handleSubmitList={handleSubmitList} />
+                <ul>
+                    {
+                        currentList.length > 0 ?
+                            currentList.map((product) => (
 
-        </div>
+                                <ShoppingListItem
+                                    key={product.id}
+                                    product={product}
+                                />
+
+                            )) : <p>Geen producten toegevoegd</p>
+                    }
+                </ul>
+
+                <SubmitButton
+                    buttonClass="form__add-item--submit-button"
+                    buttonText="Verstuur en maak nieuwe lijst aan"
+                />
+
+            </form>
+        </section>
     );
 };
 
