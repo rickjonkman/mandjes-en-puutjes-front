@@ -1,38 +1,42 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import RecentShoppingList from "./RecentShoppingList.jsx";
-import {UserContext} from "../../../../context/UserContext.jsx";
 import axios from "axios";
+import {getUsername} from "../../../../helpers/getUsername.js";
 import RecentShoppingListItem from "./RecentShoppingListItem.jsx";
 
 const RecentListsContainer = () => {
 
-    const {userDetails} = useContext(UserContext);
-
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [shoppingLists, setShoppingLists] = useState([]);
+    const [recentLists, setRecentLists] = useState([{
+        id: 0,
+        creationDate: null,
+        products: [],
+        username: '',
+    }]);
 
     useEffect(() => {
-        void fetchShoppingLists();
-
-        return console.log('Recent lists are mounted');
+        const fetchData = async () => {
+            await fetchRecentLists();
+        }
+        void fetchData();
     }, []);
 
-    const fetchShoppingLists = async () => {
+    const fetchRecentLists = async () => {
+        const username = getUsername();
 
         setError(null);
         setIsLoading(true);
 
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/shopping-lists/get-lists?username=${userDetails.username}`,
+            const response = await axios.get(`http://localhost:8080/api/v1/shopping-lists/get-lists?username=${username}`,
                 {
                     headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
                     }
-                });
-            console.log(response);
-            setShoppingLists(response.data);
+                })
+            setRecentLists(response.data);
         } catch (e) {
             console.error(e);
             setError(e);
@@ -41,31 +45,25 @@ const RecentListsContainer = () => {
         }
     }
 
-    console.log(shoppingLists);
-
     return (
         <section className="recent-shopping-lists__container">
 
+            { error && <p>Er is een fout opgetreden: {error.message}</p> }
+            { isLoading && <p>Gegevens worden geladen...</p> }
 
             {
-                shoppingLists.map((list) => {
-                    return (
-                        <RecentShoppingList
-                            key={list.id}
-                            creationDate={list.creationDate}>
-                            {
-                                list.groceries.map((grocery, index) => {
-                                    return (
-                                        <RecentShoppingListItem
-                                            key={index}
-                                            grocery={grocery}
-                                        />
-                                    )
-                                })
-                            }
-                        </RecentShoppingList>
-                    )
-                })
+                recentLists.length !== 0 ?
+                recentLists.map((list, index) => (
+                    <RecentShoppingList
+                        key={index}
+                        creationDate={list.creationDate}>
+                        {list.products.map((product, index) => (
+
+                            <RecentShoppingListItem key={index} grocery={product.name} />
+
+                        ))}
+                    </RecentShoppingList>
+                )) : <p>Er zijn geen recente lijsten gevonden.</p>
             }
 
         </section>

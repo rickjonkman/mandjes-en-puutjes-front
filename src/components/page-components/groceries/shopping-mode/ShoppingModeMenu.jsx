@@ -4,7 +4,8 @@ import {ShoppingModeContext} from "../../../../context/ShoppingModeContext.jsx";
 
 const ShoppingModeMenu = () => {
 
-    const { handleAddProduct, productItem, setProductItem } = useContext(ShoppingModeContext);
+    const { currentList, handleAddProduct, productItem, setProductItem } = useContext(ShoppingModeContext);
+    console.log(currentList)
 
     return (
         <aside className="groceries-shopping-mode__menu">

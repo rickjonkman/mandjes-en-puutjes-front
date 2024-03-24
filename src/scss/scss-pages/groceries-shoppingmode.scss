@@ -1,0 +1,106 @@
+@import "../mixin-containers";
+@import "../buttons";
+@import "../typography";
+@import "../utils";
+
+.groceries-shopping-mode__container {
+  @include set-flexbox(column, space-between, flex-start);
+
+  .groceries-shopping-mode__menu {
+    @include set-flexbox(row, space-between, center);
+    @include set-bg-color-thick-border($blue-90, $blue-70);
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+  }
+
+  .form__add-item--container {
+    @include set-flexbox(column, space-between, center);
+    width: 100%;
+  }
+
+  .shopping-mode__form--add-item {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+
+  }
+
+  .groceries-shopping-mode__content {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.shopping-mode__form--add-item {
+
+  input {
+    width: 50%;
+    padding: .2rem;
+    border: 2px solid $blue-70;
+    border-radius: 8px;
+    font-size: 1.2rem;
+  }
+
+  button {
+    @include set-add-grocery-button($blue-70, $blue-100, $blue-70);
+    width: 15%;
+  }
+}
+
+.shopping-mode__content--form {
+  width: 100%;
+
+  ul {
+    @include set-flexbox(column, flex-start, flex-start);
+    width: 100%;
+  }
+
+  ul li {
+    @include set-flexbox(row, space-between, center);
+    width: 100%;
+    padding: .2rem;
+    background-color: $blue-100;
+    border-bottom: 1px solid $blue-70;
+  }
+
+  .shopping-mode__content--checkbox {
+    @include set-flexbox(row, space-between, center);
+    width: 60%;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  .shopping-list__button-group {
+    @include set-flexbox(row, space-between, center);
+    width: 10%;
+  }
+
+  #not-found-button,
+  #checked-button {
+    @include set-shopping-list-item-button;
+    @include set-flexbox(row, center, center);
+  }
+
+  #not-found-button:hover {
+    border: 2px solid $tomato-70;
+    border-radius: 8px;
+  }
+
+  #checked-button:hover {
+    border: 2px solid $lime-70;
+    border-radius: 8px;
+  }
+
+}
+
+.form__add-item--submit-button {
+    @include set-register-login-submit-button($blue-70, $blue-100, $blue-70);
+    width: 100%;
+    margin-top: 2rem;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+

@@ -1,4 +1,6 @@
 import {createContext, useEffect, useState} from "react";
+import {getCurrentDate} from "../helpers/getCurrentDate.js";
+import {getUsername} from "../helpers/getUsername.js";
 
 
 
@@ -30,7 +32,16 @@ const ShoppingModeContextProvider = ({ children }) => {
         name: "",
         inStorage: false,
         notFound: false,
+        selected: false,
     })
+
+    const [listTransferObject] = useState({
+        creationDate: getCurrentDate(),
+        products: currentList,
+        username: getUsername(),
+    });
+
+
 
     useEffect(() => {
         localStorage.setItem("currentList", JSON.stringify(currentList));
@@ -49,6 +60,7 @@ const ShoppingModeContextProvider = ({ children }) => {
         setCurrentList,
         productItem,
         setProductItem,
+        listTransferObject,
         handleAddProduct,
     }
 
